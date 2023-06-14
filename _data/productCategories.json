@@ -1,0 +1,29 @@
+[
+  {
+    "_id": "637a3694e5fc335f796a4151",
+    "name": "Peignes",
+    "description":"peignes de plage"
+  },
+  {
+    "_id": "637a3694e5fc335f796a4152",
+    "name": "Mousquetons",
+    "description": "Mousquetons porte-clefs"
+  },
+  {
+    "_id": "637a3694e5fc335f796a4153",
+    "name": "Perles",
+    "description": "Perles large"
+  }
+  ,
+  {
+    "_id": "637a3694e5fc335f796a41534",
+    "name": "Bagues",
+    "description": "Perles large"
+  },
+  {
+    "_id": "637a3694e5fc335f796a4155",
+    "name": "Cache pots",
+    "description": "Cache pots"
+  }
+
+]

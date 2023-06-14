@@ -13,13 +13,6 @@ const UserSchema = new mongoose.Schema(
       compagnyName: String,
       ridet: String,
     },
-    agent: {
-      codeAgent: String,
-      cafat: String,
-      contrat: String,
-      function: String,
-      tauxHorraire: String,
-    },
 
     email: {
       type: String,
@@ -32,7 +25,7 @@ const UserSchema = new mongoose.Schema(
     },
     role: {
       type: String,
-      enum: ['partner', 'staff', 'admin', 'recycler'],
+      enum: ['partner', 'admin', 'recycler'],
       default: 'partner',
     },
 

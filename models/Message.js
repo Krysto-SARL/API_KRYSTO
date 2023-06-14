@@ -1,68 +1,62 @@
-const mongoose = require("mongoose");
-
+const mongoose = require('mongoose')
 
 const MessageSchema = new mongoose.Schema(
   {
     object: {
       type: String,
-      required: [true, "Please add object"],
+      required: [true, 'Please add object'],
       trim: true,
-      maxlength: [50, "Name can not be more than 30 characters"],
+      maxlength: [50, 'Name can not be more than 30 characters'],
     },
 
     name: {
-        type: String,
-        required: [true, "Please add name"],
-        trim: true,
-        maxlength: [30, "Name can not be more than 30 characters"],
-      },
+      type: String,
+      required: [true, 'Please add name'],
+      trim: true,
+      maxlength: [30, 'Name can not be more than 30 characters'],
+    },
     lastname: {
-        type: String,
-        trim: true,
-        maxlength: [30, "Name can not be more than 30 characters"],
-      },
-
+      type: String,
+      trim: true,
+      maxlength: [30, 'Name can not be more than 30 characters'],
+    },
 
     compagny: {
-        type: String,
-        trim: true,
-        maxlength: [30, "Compagny can not be more than 50 characters"],
-      },
+      type: String,
+      trim: true,
+      maxlength: [30, 'Compagny can not be more than 50 characters'],
+    },
     function: {
-        type: String,
-        trim: true,
-        maxlength: [30, "function can not be more than 50 characters"],
-      },
-      email: {
-        type: String,
-        match: [
-          /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/,
-          "Please add a valid email",
-        ],
-      },
-      
+      type: String,
+      trim: true,
+      maxlength: [30, 'function can not be more than 50 characters'],
+    },
+    email: {
+      type: String,
+      match: [
+        /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/,
+        'Please add a valid email',
+      ],
+    },
+
     message: {
       type: String,
-      maxlength: [5000, "Message can not be more than 5000 characters"],
+      maxlength: [5000, 'Message can not be more than 5000 characters'],
     },
     status: {
-        // Array of strings
-        type: String ,
-        required: true,
-        enum: [
-          "not_read",
-          "Archived",
-        ],
-        default: "not_read"
-      },
-   
+      // Array of strings
+      type: String,
+      required: true,
+      enum: ['not_read', 'Archived'],
+      default: 'not_read',
+    },
   },
 
   {
-    timestamps: true ,
+    timestamps: true,
     toJSON: { virtuals: true },
     toObject: { virtuals: true },
-  }
-);
+  },
+)
 
-module.exports = mongoose.model("Message", MessageSchema);
+module.exports = mongoose.model('Message', MessageSchema)
