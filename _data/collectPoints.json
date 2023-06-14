@@ -1,0 +1,105 @@
+[
+    {
+      "_id": "637a2e4122b12690420041c1",
+      "user": "5d7a514b5d2c12c7449be014",
+      "description": "point de collecte bouchons bouteilles plastique : le bac ce trouve a l'accueil",
+      "partnerName": "Square",
+      "address": "5 RUE DU MARECHAL LECLERC 98800 NOUMEA",
+      "waste": "637a3694e5fc335f796a4941"
+    },
+    {
+      "_id": "637a2e4122b12690420041c2",
+      "user": "5d7a514b5d2c12c7449be014",
+      "description": "point de collecte gobelet a coté de la fontaine a eau de l'acceuil",
+      "partnerName": "Square",
+      "address": "5 RUE DU MARECHAL LECLERC 98800 NOUMEA",
+      "lastCollectDate": "01-02-2023",
+      "waste": "637a3694e5fc335f796a4942"
+    },
+    {
+      "_id": "637a2e4122b12690420041c3",
+      "user": "5d7a514b5d2c12c7449be014",
+      "description": "Box des capsules à cafè dans le bureau open space (1er porte a droite)",
+      "partnerName": "Square",
+      "address": "5 RUE DU MARECHAL LECLERC 98800 NOUMEA",
+      "waste": "637a3694e5fc335f796a4948"
+    },
+    {
+      "_id": "637a2e4122b12690420041c4",
+      "user": "5d7a514b5d2c12c7449be014",
+      "description": "box sceler a récuperer dans le bureau du dirigeant (demander gregory)",
+      "partnerName": "Square",
+      "address": "5 RUE DU MARECHAL LECLERC 98800 NOUMEA",
+      "waste": "637a3694e5fc335f796a4944"
+      
+    }
+  ,
+    {
+      "_id": "637a2e4122b12690420041c5",
+      "user": "5d7a514b5d2c12c7449be014",
+      "partnerName": "Square",
+      "description": "point de collecte papier demander a la réception pour récuperer le bac",
+      "address": "5 RUE DU MARECHAL LECLERC 98800 NOUMEA",
+      "waste": "637a3694e5fc335f796a4949"
+    }
+  ,
+    {
+      "_id": "637a2e4122b12690420041c6",
+      "user": "5d7a514b5d2c12c7449be015",
+      "partnerName": "Optic Disount",
+      "description": "point de collecte plastique déchets liée a la production de lunettes",
+      "address": "1 rue Anatole France, 98800 Nouméa",
+      "waste": "637a3694e5fc335f796a4943"
+    },
+    {
+      "_id": "637a2e4122b12690420041c7",
+      "user": "5d7a514b5d2c12c7449be015",
+      "partnerName": "Optic Disount",
+      "description": "point de collecte plastique contenant de verres de lunettes",
+      "address": "1 rue Anatole France, 98800 Nouméa",
+      "waste": "637a3694e5fc335f796a4961"
+    },
+    {
+      "_id": "637a2e4122b12690420041c8",
+      "user": "5d7a514b5d2c12c7449be015",
+      "partnerName": "Optic Disount",
+      "description": "point de collecte papier demander a l'acceuil du magasin",
+      "address": "1 rue Anatole France, 98800 Nouméa",
+      "waste": "637a3694e5fc335f796a4949"
+    },
+    {
+      "_id": "637a2e4122b12690420041c9",
+      "user": "5d7a514b5d2c12c7449be016",
+      "partnerName": "Melrose",
+      "description": "point de collecte plastique ceintres",
+      "address": "29 Avenue du Maréchal Foch 98800 Nouméa Nouvelle-Calédonie",
+      "waste": "637a3694e5fc335f796a4962"
+    },
+    {
+      "_id": "637a2e4122b12690420041e1",
+      "user": "5d7a514b5d2c12c7449be017",
+      "partnerName": "Le froid",
+      "description": "point de collecte papier demander a l'accueil",
+      "address": "7 Rue des Frères Charpentier Quartier Montravel 98800 Nouméa Nouvelle-Calédonie",
+      "waste": "637a3694e5fc335f796a4949"
+    },
+    {
+      "_id": "637a2e4122b12690420041e2",
+      "user": "5d7a514b5d2c12c7449be017",
+      "partnerName": "Le froid",
+      "description": "point de collecte gobelet fontaine a eaux",
+      "address": "7 Rue des Frères Charpentier Quartier Montravel 98800 Nouméa Nouvelle-Calédonie",
+      "waste": "637a3694e5fc335f796a4949"
+    },
+    {
+      "_id": "637a2e4122b12690420041e3",
+      "user": "5d7a514b5d2c12c7449be020",
+      "partnerName": "Malongo café store",
+      "description": "point de collecte Marc de café",
+      "address": "119 Promenade Roger Laroque 98800 Nouméa Nouvelle-Calédonie",
+      "waste": "637a3694e5fc335f796a4960"
+    
+    }
+  
+  ]
+  

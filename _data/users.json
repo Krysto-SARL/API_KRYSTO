@@ -1,0 +1,226 @@
+[
+	{
+		"_id": "5d7a514b5d2c12c7449be010",
+		"username": "Stoyann",
+		"email": "stoyann@gmail.com",
+		"role": "admin",
+		"password": "123456",
+		"contact": {
+			"firstname": "Stoyann",
+			"lastname": "velten",
+			"function": "dirigeant",
+			"phone": "939253",
+			"address" :"8 rue Higginson res. le Clos St Jean Appt. D03 98800 Noumèa"
+		  },
+		
+		  "agent": {
+			"codeAgent": "0005",
+			"cafat": "00789622",
+			"contrat": "CDI",
+			"function": "dirigeant",
+			"tauxHorraire": "1600"
+		  }
+		  
+		 
+	},
+
+	{
+		"_id": "5d7a514b5d2c12c7449be011",
+		"username": "Samuel",
+		"email": "samuel@gmail.com",
+		"role": "staff",
+		"password": "123456",
+		"contact": {
+			"firstname": "Samuel",
+			"lastname": "Jodar",
+			"function": "Employé polyvalent",
+			"phone": "931256",
+			"address" :"8 rue jean de la fontaine PK7 98800 Noumèa"
+		  },
+		
+		  "agent": {
+			"codeAgent": "0003",
+			"cafat": "00776523",
+			"contrat": "CDI",
+			"function": "dirigeant",
+			"tauxHorraire": "1100"
+		  }
+	},
+
+	{
+		"_id": "5d7a514b5d2c12c7449be012",
+		"username": "Aska",
+		"email": "aska@gmail.com",
+		"role": "staff",
+		"password": "123456",
+		"contact": {
+			"firstname": "Aska",
+			"lastname": "Laigret",
+			"function": "Agent de collecte",
+			"phone": "935485",
+			"address" :"8 rue Higginson res. le Clos St Jean Appt. D03 98800 Noumèa"
+		  },
+		
+		  "agent": {
+			"codeAgent": "0004",
+			"cafat": "00776896",
+			"contrat": "CDD",
+			"function": "Agent de collecte",
+			"tauxHorraire": "1600"
+		  }
+	},
+	{
+		"_id": "5d7a514b5d2c12c7449be013",
+		"username": "Romain",
+		"email": "romain@gmail.com",
+		"role": "staff",
+		"password": "123456",
+		"contact": {
+			"firstname": "Romain",
+			"lastname": "Pouchard",
+			"function": "Agent de production",
+			"phone": "984574",
+			"address" :"8 rue des ecoles VDC 98800 Noumèa"
+		  },
+		
+		  "agent": {
+			"codeAgent": "0005",
+			"cafat": "00776456",
+			"contrat": "CDI",
+			"function": "Agent de production",
+			"tauxHorraire": "1900"
+		  }
+	},
+
+
+
+	{
+		"_id": "5d7a514b5d2c12c7449be014",
+		"username": "Square NC",
+		"email": "square@gmail.com",
+		"compagny": {
+			"compagnyName" : "Square",
+			"ridet" : "532374"
+
+		},
+		"role": "partner",
+		"password": "123456",
+		"contact": {
+			"firstname": "Gregory",
+			"lastname": "Beghain",
+			"function": "directeur génèral",
+			"phone": "902626"
+		  }
+	},
+
+
+
+
+	{
+		"_id": "5d7a514b5d2c12c7449be015",
+		"username": "Optic Discount",
+		"compagny": {
+			"compagnyName" : "Optic Discount",
+			"ridet" : "441591"
+		},
+		"email": "optic@gmail.com",
+		"role": "partner",
+		"password": "123456",
+		"contact": {
+			"firstname": "Harold",
+			"lastname": "Courtot",
+			"function": "gerant",
+			"phone": "300340"
+		  }
+	},
+
+	{
+		"_id": "5d7a514b5d2c12c7449be016",
+		"username": "Melrose",
+		"compagny": {
+			"compagnyName" : "Melrose",
+			"ridet" : "441874"
+		},
+		"email": "melrose@gmail.com",
+		"role": "partner",
+		"password": "123456",
+		"contact": {
+			"firstname": "Marion",
+			"lastname": "Laigret",
+			"function": "gerante",
+			"phone": "283514"
+		  }
+	},
+
+	{
+		"_id": "5d7a514b5d2c12c7449be017",
+		"username": "Le froid",
+		"compagny": {
+			"compagnyName" : "Le froid",
+			"ridet" : "441874"
+		},
+		"email": "lefroid@gmail.com",
+		"role": "partner",
+		"password": "123456",
+		"contact": {
+			"firstname": "Nicolas",
+			"lastname": "Troboas",
+			"function": "PDG",
+			"phone": "245896"
+		  }
+	},
+
+	{
+		"_id": "5d7a514b5d2c12c7449be018",
+		"username": "Geant St Marie",
+		"compagny": {
+			"compagnyName" : "Geant St Marie",
+			"ridet" : "4417451"
+		},
+		"email": "geant@gmail.com",
+		"role": "partner",
+		"password": "123456",
+		"contact": {
+			"firstname": "Emannuel",
+			"lastname": "Morenno",
+			"function": "Directeur",
+			"phone": "856471"
+		  }
+	} ,
+
+	{
+		"_id": "5d7a514b5d2c12c7449be019",
+		"username": "SHRED X ",
+		"compagny": {
+			"compagnyName" : "shred X",
+			"ridet" : "4417451"
+		},
+		"email": "shredx@mail.com",
+		"role": "recycler",
+		"password": "123456",
+		"contact": {
+			"firstname": "gerard",
+			"lastname": "brand",
+			"function": "Directeur",
+			"phone": "775722"
+		  }
+	},
+	
+	{
+		"_id": "5d7a514b5d2c12c7449be020",
+		"username": "Malongo CAFESTORE",
+		"compagny": {
+			"compagnyName" : "Malongo café store",
+			"ridet" : "4411254"
+		},
+		"email": "malongo@gmail.com",
+		"role": "partner",
+		"password": "123456",
+		"contact": {
+			"firstname": "Sébastien",
+			"lastname": "Fontaine",
+			"function": "gerant",
+			"phone": "762590"
+		  }
+	}
+]

@@ -1,0 +1,87 @@
+[
+	{
+        "_id": "637a3694e5fc335f796a4941",
+        "wasteCategory": "Plastique",
+        "wasteType": "Bouteille en plastique",
+        "plasticType": "PET",
+        "détails": ""
+      },
+	{
+        "_id": "637a3694e5fc335f796a4942",
+        "wasteCategory": "Plastique",
+        "wasteType": "Bouchons bouteille plastique",
+        "plasticType": "HDPE",
+        "détails": ""
+      },
+	{
+        "_id": "637a3694e5fc335f796a4943",
+        "wasteCategory": "Plastique",
+        "wasteType": "Déchets optique",
+        "plasticType": "Autres",
+        "détails": "Déchets liée a la fabrication de verres de lunettes"
+      },
+	{
+        "_id": "637a3694e5fc335f796a4944",
+        "wasteCategory": "Papier",
+        "wasteType": "Papier confidentiel",
+        "détails": "Boites sceller ne pas ouvrir"
+    },
+	{
+        "_id": "637a3694e5fc335f796a4945",
+        "wasteCategory": "Déchets alimentaire",
+        "wasteType": "déchets de restauration",
+        "détails": ""
+    },
+    {
+        "_id": "637a3694e5fc335f796a4946",
+        "wasteCategory": "Plastique",
+        "wasteType": "Gobelets",
+        "plasticType": "PLA",
+        "détails": ""
+    },
+    {
+        "_id": "637a3694e5fc335f796a4947",
+        "wasteCategory": "Déchets alimentaire",
+        "wasteType": "déchets de poissons",
+        "détails": ""
+    },
+    {
+        "_id": "637a3694e5fc335f796a4948",
+        "wasteCategory": "Capsule",
+        "wasteType": "capsule machine a café Malongo",
+        "détails": ""
+    },
+    {
+        "_id": "637a3694e5fc335f796a4949",
+        "wasteCategory": "Papier",
+        "wasteType": "Papier non cofidentiel",
+        "détails": ""
+    },
+    {
+        "_id": "637a3694e5fc335f796a4960",
+        "wasteCategory": "Déchets alimentaire",
+        "wasteType": "Marc de café",
+        "détails": ""
+    },
+    {
+        "_id": "637a3694e5fc335f796a4961",
+        "wasteCategory": "Plastique",
+        "wasteType": "Contenant de verres de lunettes",
+        "détails": "",
+        "plasticType": "PS"
+    },
+    {
+        "_id": "637a3694e5fc335f796a4962",
+        "wasteCategory": "Plastique",
+        "wasteType": "Ceintres plastique",
+        "détails": "ceintre de couleur Blanc Melrose",
+        "plasticType": "PP"
+    }
+]
+
+
+
+      
+  
+
+
