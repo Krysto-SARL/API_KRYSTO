@@ -12,6 +12,12 @@ const ProductSchema = new mongoose.Schema(
       maxlength: [500, 'Name can not be more than 500 characters'],
       default: 'aucune description',
     },
+    size: {
+      type: String,
+    },
+    color: {
+      type: String,
+    },
 
     photo: {
       type: String,

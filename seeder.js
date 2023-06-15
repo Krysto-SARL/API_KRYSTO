@@ -15,6 +15,7 @@ const Message = require('./models/Message')
 const Certificat = require('./models/Certificat')
 const Waste = require('./models/Waste')
 const ProductCategory = require('./models/ProductCategory')
+const Product = require('./models/Product')
 // Connect to DB
 mongoose.set('strictQuery', false)
 mongoose.connect(process.env.MONGO_URI, {
@@ -47,6 +48,9 @@ const wastes = JSON.parse(
 const productCategories = JSON.parse(
   fs.readFileSync(`${__dirname}/_data/productCategories.json`, 'utf-8'),
 )
+const products = JSON.parse(
+  fs.readFileSync(`${__dirname}/_data/Products.json`, 'utf-8'),
+)
 
 // Import into DB
 const importData = async () => {
@@ -58,6 +62,7 @@ const importData = async () => {
     await Certificat.create(certificats)
     await Waste.create(wastes)
     await ProductCategory.create(productCategories)
+    await Product.create(products)
     console.log('Data Imported...'.green.inverse)
     process.exit()
   } catch (err) {
@@ -75,6 +80,7 @@ const deleteData = async () => {
     await Certificat.deleteMany()
     await Waste.deleteMany()
     await ProductCategory.deleteMany()
+    await Product.deleteMany()
     console.log('Data Destroyed...'.red.inverse)
     process.exit()
   } catch (err) {

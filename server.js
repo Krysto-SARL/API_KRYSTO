@@ -34,6 +34,7 @@ const messages = require('./routes/message')
 const certificats = require('./routes/certificats')
 const wastes = require('./routes/wastes')
 const productCategories = require('./routes/productCategories.js')
+const products = require('./routes/products.js')
 
 const collectPoints = require('./routes/collectPoints')
 
@@ -93,6 +94,7 @@ app.use('/krysto-go/api/v1/messages', messages)
 app.use('/krysto-go/api/v1/certificats', certificats)
 app.use('/krysto-go/api/v1/wastes', wastes)
 app.use('/krysto-go/api/v1/productCategories', productCategories)
+app.use('/krysto-go/api/v1/products', products)
 app.use(errorHandler)
 
 const PORT = process.env.PORT || 8080
