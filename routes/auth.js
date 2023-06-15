@@ -1,4 +1,4 @@
-const express = require('express');
+const express = require('express')
 const {
   register,
   login,
@@ -7,20 +7,19 @@ const {
   forgotPassword,
   resetPassword,
   updateDetails,
-  updatePassword
-} = require('../controllers/auth');
+  updatePassword,
+} = require('../controllers/auth')
 
-const router = express.Router();
-const {protect, authorize} = require('../middlewares/auth')
+const router = express.Router()
+const { protect, authorize } = require('../middlewares/auth')
 
+router.post('/register', register)
+router.post('/login', login)
+router.get('/logout', logout)
+router.get('/me', protect, getMe)
+router.put('/updatedetails', protect, updateDetails)
+router.put('/updatepassword', protect, updatePassword)
+router.post('/forgotpassword', forgotPassword)
+router.put('/resetpassword/:resettoken', resetPassword)
 
-router.post('/register', protect, authorize('admin'), register);
-router.post('/login', login);
-router.get('/logout', logout);
-router.get('/me', protect, getMe);
-router.put('/updatedetails', protect, updateDetails);
-router.put('/updatepassword', protect, updatePassword);
-router.post('/forgotpassword', forgotPassword);
-router.put('/resetpassword/:resettoken', resetPassword);
-
-module.exports = router;
+module.exports = router

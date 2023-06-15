@@ -2,6 +2,7 @@ const path = require('path')
 const ErrorResponse = require('../utils/errorResponse')
 const asyncHandler = require('../middlewares/async')
 const ProductCategory = require('../models/ProductCategory')
+const { log } = require('console')
 
 //@description:     Get all product categories
 //@ route:          GET /krysto/api/v2/productCategories
@@ -101,58 +102,60 @@ exports.deleteProductCategory = asyncHandler(async (req, res, next) => {
   res.status(200).json({ success: true, data: {} })
 })
 
-// @desc      Upload QR code for collect points
-// @route     PUT /api/v1/collectPoints/:id/qr
+// @desc      Upload photo for product category
+// @route     PUT /api/v1/productCategories/:id/photo
 // @access    Private
-// exports.collectPointQrUpload = asyncHandler(async (req, res, next) => {
-//   const collectPoint = await CollectPoint.findById(req.params.id)
+exports.productCategoryPhotoUpload = asyncHandler(async (req, res, next) => {
+  const productCategory = await ProductCategory.findById(req.params.id)
 
-//   if (!collectPoint) {
-//     return next(
-//       new ErrorResponse(
-//         `Collect point not found with id of ${req.params.id}`,
-//         404,
-//       ),
-//     )
-//   }
+  if (!productCategory) {
+    return next(
+      new ErrorResponse(
+        `Product category not found with id of ${req.params.id}`,
+        404,
+      ),
+    )
+  }
 
-//   if (!req.files) {
-//     return next(new ErrorResponse(`Please upload a file`, 400))
-//   }
+  if (!req.files) {
+    return next(new ErrorResponse(`Please upload a file`, 400))
+  }
 
-//   const file = req.files.file
+  const file = req.files.photo
+  console.log(file)
+  //   console.log(file)
 
-//   // Make sure the image is a photo
-//   if (!file.mimetype.startsWith('image')) {
-//     return next(new ErrorResponse(`Please upload an image file`, 400))
-//   }
+  // Make sure the image is a photo
+  if (!file.mimetype.startsWith('image')) {
+    return next(new ErrorResponse(`Please upload an image file`, 400))
+  }
 
-//   // Check filesize
-//   if (file.size > process.env.MAX_FILE_UPLOAD) {
-//     return next(
-//       new ErrorResponse(
-//         `Please upload an image less than ${process.env.MAX_FILE_UPLOAD}`,
-//         400,
-//       ),
-//     )
-//   }
+  // Check filesize
+  if (file.size > process.env.MAX_FILE_UPLOAD) {
+    return next(
+      new ErrorResponse(
+        `Please upload an image less than ${process.env.MAX_FILE_UPLOAD}`,
+        400,
+      ),
+    )
+  }
 
-//   // Create custom filename
-//   file.name = `collectPoint_QRCode_${collectPoint._id}${
-//     path.parse(file.name).ext
-//   }`
+  // Create custom filename
+  file.name = `productCategory_photo_${productCategory._id}${
+    path.parse(file.name).ext
+  }`
 
-//   file.mv(`${process.env.FILE_UPLOAD_PATH}/${file.name}`, async (err) => {
-//     if (err) {
-//       console.error(err)
-//       return next(new ErrorResponse(`Problem with file upload`, 500))
-//     }
+  file.mv(`${process.env.FILE_UPLOAD_PATH}/${file.name}`, async (err) => {
+    if (err) {
+      console.error(err)
+      return next(new ErrorResponse(`Problem with file upload`, 500))
+    }
 
-//     await CollectPoint.findByIdAndUpdate(req.params.id, { photo: file.name })
+    await ProductCategory.findByIdAndUpdate(req.params.id, { photo: file.name })
 
-//     res.status(200).json({
-//       success: true,
-//       data: file.name,
-//     })
-//   })
-// })
+    res.status(200).json({
+      success: true,
+      data: file.name,
+    })
+  })
+})

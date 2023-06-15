@@ -8,12 +8,6 @@ const ProductCategorySchema = new mongoose.Schema(
       type: String,
       required: [true, 'Aucun nom'],
     },
-    description: {
-      type: String,
-      required: [true, 'Aucune déscription'],
-      maxlength: [500, 'Name can not be more than 500 characters'],
-      default: 'aucune description',
-    },
 
     photo: {
       type: String,

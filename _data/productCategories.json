@@ -1,29 +1,37 @@
 [
   {
     "_id": "637a3694e5fc335f796a4151",
-    "name": "Peignes",
-    "description":"peignes de plage"
+    "name": "Peignes"
   },
   {
     "_id": "637a3694e5fc335f796a4152",
-    "name": "Mousquetons",
-    "description": "Mousquetons porte-clefs"
+    "name": "Mousquetons"
   },
   {
     "_id": "637a3694e5fc335f796a4153",
-    "name": "Perles",
-    "description": "Perles large"
+    "name": "Perles"
   }
   ,
   {
-    "_id": "637a3694e5fc335f796a41534",
-    "name": "Bagues",
-    "description": "Perles large"
+    "_id": "637a3694e5fc335f796a4154",
+    "name": "Bagues"
   },
   {
     "_id": "637a3694e5fc335f796a4155",
-    "name": "Cache pots",
-    "description": "Cache pots"
+    "name": "Cache pots"
+  },
+  {
+    "_id": "637a3694e5fc335f796a4156",
+    "name": "Dessous de verres"
+  },
+  {
+    "_id": "637a3694e5fc335f796a4157",
+    "name": "régles ecolier"
+  },
+  {
+    "_id": "637a3694e5fc335f796a4158",
+    "name": "porte savons"
   }
+
 
 ]

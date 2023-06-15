@@ -24,75 +24,7 @@
 		 
 	},
 
-	{
-		"_id": "5d7a514b5d2c12c7449be011",
-		"username": "Samuel",
-		"email": "samuel@gmail.com",
-		"role": "staff",
-		"password": "123456",
-		"contact": {
-			"firstname": "Samuel",
-			"lastname": "Jodar",
-			"function": "Employé polyvalent",
-			"phone": "931256",
-			"address" :"8 rue jean de la fontaine PK7 98800 Noumèa"
-		  },
-		
-		  "agent": {
-			"codeAgent": "0003",
-			"cafat": "00776523",
-			"contrat": "CDI",
-			"function": "dirigeant",
-			"tauxHorraire": "1100"
-		  }
-	},
-
-	{
-		"_id": "5d7a514b5d2c12c7449be012",
-		"username": "Aska",
-		"email": "aska@gmail.com",
-		"role": "staff",
-		"password": "123456",
-		"contact": {
-			"firstname": "Aska",
-			"lastname": "Laigret",
-			"function": "Agent de collecte",
-			"phone": "935485",
-			"address" :"8 rue Higginson res. le Clos St Jean Appt. D03 98800 Noumèa"
-		  },
-		
-		  "agent": {
-			"codeAgent": "0004",
-			"cafat": "00776896",
-			"contrat": "CDD",
-			"function": "Agent de collecte",
-			"tauxHorraire": "1600"
-		  }
-	},
-	{
-		"_id": "5d7a514b5d2c12c7449be013",
-		"username": "Romain",
-		"email": "romain@gmail.com",
-		"role": "staff",
-		"password": "123456",
-		"contact": {
-			"firstname": "Romain",
-			"lastname": "Pouchard",
-			"function": "Agent de production",
-			"phone": "984574",
-			"address" :"8 rue des ecoles VDC 98800 Noumèa"
-		  },
-		
-		  "agent": {
-			"codeAgent": "0005",
-			"cafat": "00776456",
-			"contrat": "CDI",
-			"function": "Agent de production",
-			"tauxHorraire": "1900"
-		  }
-	},
-
-
+	
 
 	{
 		"_id": "5d7a514b5d2c12c7449be014",

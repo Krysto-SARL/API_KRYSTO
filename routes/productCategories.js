@@ -6,6 +6,7 @@ const {
   getProductCategory,
   updateProductCategory,
   deleteProductCategory,
+  productCategoryPhotoUpload,
 } = require('../controllers/productCategories')
 const router = express.Router({ mergeParams: true })
 const { protect, authorize } = require('../middlewares/auth')
@@ -21,5 +22,7 @@ router
   .get(getProductCategory)
   .delete(deleteProductCategory)
   .put(updateProductCategory)
+
+router.route('/:id/photo').put(productCategoryPhotoUpload)
 
 module.exports = router
