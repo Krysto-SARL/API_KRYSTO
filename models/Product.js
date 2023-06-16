@@ -1,34 +1,40 @@
-const mongoose = require("mongoose");
+const mongoose = require('mongoose')
 
 const ProductSchema = new mongoose.Schema(
   {
-    name: {
+    refference: {
       type: String,
-      required: [true, "Aucun nom"],
+      required: true,
     },
-    description: {
+
+    designation: {
       type: String,
-      required: [true, "Aucune déscription"],
-      maxlength: [500, "Name can not be more than 500 characters"],
-      default: "aucune description",
+      required: true,
     },
+
     size: {
       type: String,
     },
-    color: {
+    unitWeight: {
       type: String,
     },
+
     unitPrice: {
       type: Number,
+    },
+    tgc: {
+      type: Number,
+      required: [true],
+      default: 22,
     },
 
     photo: {
       type: String,
-      default: "no-photo.png",
+      default: 'no-photo.png',
     },
     productCategory: {
       type: mongoose.Schema.Types.ObjectId,
-      ref: "ProductCategory",
+      ref: 'ProductCategory',
       required: true,
     },
   },
@@ -37,7 +43,7 @@ const ProductSchema = new mongoose.Schema(
     timestamps: true,
     toJSON: { virtuals: true },
     toObject: { virtuals: true },
-  }
-);
+  },
+)
 
-module.exports = mongoose.model("Product", ProductSchema);
+module.exports = mongoose.model('Product', ProductSchema)

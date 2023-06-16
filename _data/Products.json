@@ -3,12 +3,42 @@
   
     {
       "_id": "5d7a514b5d2c12c7449be320",
-      "name": "637a2e4122b12690420041c1",
+      "refference": "PEIG-25",
+      "designation": "peignes grand modéle boite de 25",
       "size": "14 Cm",
+      "unitWeight": "18 Gr",
       "productCategory": "637a3694e5fc335f796a4151",
-      "color": "blue",
-      "unitPrice": 1200
-      
+      "unitPrice": 6643
+    },
+  
+    {
+      "_id": "5d7a514b5d2c12c7449be321",
+      "refference": "PERL-20",
+      "designation": "perles grand modéle 10 sachets de 20 perles",
+      "size": "1mm",
+      "unitWeight": "1 Gr",
+      "productCategory": "637a3694e5fc335f796a4153",
+      "unitPrice": 4332
+    },
+  
+    {
+      "_id": "5d7a514b5d2c12c7449be322",
+      "refference": "MOUS-50",
+      "designation": "Mousquetons boite de 50",
+      "size": "1mm",
+      "unitWeight": "1 Gr",
+      "productCategory": "637a3694e5fc335f796a4152",
+      "unitPrice": 4682
+    },
+  
+    {
+      "_id": "5d7a514b5d2c12c7449be323",
+      "refference": "CACH-10",
+      "designation": "Cache-pots pack de 10",
+      "size": "Ø 8,5 cm - H 8 cm",
+      "unitWeight": "80Gr",
+      "productCategory": "637a3694e5fc335f796a4155",
+      "unitPrice": 4714
     }
   
   ]

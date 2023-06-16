@@ -2,6 +2,7 @@ const path = require('path')
 const ErrorResponse = require('../utils/errorResponse')
 const asyncHandler = require('../middlewares/async')
 const ProductCategory = require('../models/ProductCategory')
+const { v4: uuidv4 } = require('uuid')
 
 //@description:     Get all product categories
 //@ route:          GET /krysto/api/v2/productCategories
@@ -14,7 +15,9 @@ exports.getProductCategories = asyncHandler(async (req, res, next) => {
 //@ route:          GET /krysto/api/v2/collectPoints/:id
 //@access:          Public
 exports.getProductCategory = asyncHandler(async (req, res, next) => {
-  const productCategory = await ProductCategory.findById(req.params.id)
+  const productCategory = await ProductCategory.findById(
+    req.params.id,
+  ).populate('products')
   if (!ProductCategory) {
     return next(
       new ErrorResponse(
@@ -101,9 +104,10 @@ exports.deleteProductCategory = asyncHandler(async (req, res, next) => {
   res.status(200).json({ success: true, data: {} })
 })
 
-// @desc      Upload photo for product category
+// @desc      Upload photos for product category
 // @route     PUT /api/v1/productCategories/:id/photo
 // @access    Private
+
 exports.productCategoryPhotoUpload = asyncHandler(async (req, res, next) => {
   const productCategory = await ProductCategory.findById(req.params.id)
 
@@ -116,45 +120,51 @@ exports.productCategoryPhotoUpload = asyncHandler(async (req, res, next) => {
     )
   }
 
-  if (!req.files) {
-    return next(new ErrorResponse(`Please upload a file`, 400))
+  if (!req.files || !req.files.photos) {
+    return next(new ErrorResponse(`Please upload one or more files`, 400))
   }
 
-  const file = req.files.photo
-  console.log(file)
-  //   console.log(file)
+  const files = req.files.photos
+  console.log(files)
 
-  // Make sure the image is a photo
-  if (!file.mimetype.startsWith('image')) {
-    return next(new ErrorResponse(`Please upload an image file`, 400))
+  // Check if all uploaded files are images
+  const areAllImages = files.every((file) => file.mimetype.startsWith('image'))
+  if (!areAllImages) {
+    return next(new ErrorResponse(`Please upload image files only`, 400))
   }
 
-  // Check filesize
-  if (file.size > process.env.MAX_FILE_UPLOAD) {
+  // Check filesize for each file
+  const maxSizeInBytes = process.env.MAX_FILE_UPLOAD
+  const oversizedFiles = files.filter((file) => file.size > maxSizeInBytes)
+  if (oversizedFiles.length > 0) {
+    const filenames = oversizedFiles.map((file) => file.name).join(', ')
     return next(
       new ErrorResponse(
-        `Please upload an image less than ${process.env.MAX_FILE_UPLOAD}`,
+        `The following files exceed the maximum upload size of ${maxSizeInBytes} bytes: ${filenames}`,
         400,
       ),
     )
   }
 
-  // Create custom filename
-  file.name = `productCategory_photo_${productCategory._id}${
-    path.parse(file.name).ext
-  }`
+  // Generate filenames for each file
+  const productCategoryId = productCategory._id
+  const uploadPath = process.env.FILE_UPLOAD_PATH
 
-  file.mv(`${process.env.FILE_UPLOAD_PATH}/${file.name}`, async (err) => {
-    if (err) {
-      console.error(err)
-      return next(new ErrorResponse(`Problem with file upload`, 500))
-    }
+  const filePromises = files.map((file) => {
+    const ext = path.parse(file.name).ext
+    const filename = `photo_${productCategoryId}_${file.name}`
 
-    await ProductCategory.findByIdAndUpdate(req.params.id, { photo: file.name })
+    return file.mv(`${uploadPath}/${filename}`)
+  })
 
-    res.status(200).json({
-      success: true,
-      data: file.name,
-    })
+  // Move and update the database once all files are uploaded
+  await Promise.all(filePromises)
+
+  const filenames = files.map((file) => file.name)
+  await ProductCategory.findByIdAndUpdate(req.params.id, { photos: filenames })
+
+  res.status(200).json({
+    success: true,
+    data: filenames,
   })
 })

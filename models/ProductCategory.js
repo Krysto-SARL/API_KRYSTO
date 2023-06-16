@@ -9,10 +9,12 @@ const ProductCategorySchema = new mongoose.Schema(
       required: [true, 'Aucun nom'],
     },
 
-    photo: {
-      type: String,
-      default: 'no-photo.png',
-    },
+    photos: [
+      {
+        type: String,
+        default: 'no-photo.png',
+      },
+    ],
   },
 
   {
@@ -21,5 +23,14 @@ const ProductCategorySchema = new mongoose.Schema(
     toObject: { virtuals: true },
   },
 )
+
+// reverse populate with virtuals
+
+ProductCategorySchema.virtual('products', {
+  ref: 'Product',
+  localField: '_id',
+  foreignField: 'productCategory',
+  justOne: false,
+})
 
 module.exports = mongoose.model('ProductCategory', ProductCategorySchema)
