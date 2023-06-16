@@ -1,22 +1,25 @@
 const mongoose = require("mongoose");
 
-const ProductSchema = new mongoose.Schema(
+const ServiceSchema = new mongoose.Schema(
   {
     name: {
       type: String,
       required: [true, "Aucun nom"],
     },
-    description: {
+    detail: {
       type: String,
       required: [true, "Aucune déscription"],
       maxlength: [500, "Name can not be more than 500 characters"],
       default: "aucune description",
     },
-    size: {
+    moreDetail: {
       type: String,
+      required: [true, "Aucune déscription"],
+      maxlength: [500, "Name can not be more than 500 characters"],
+      default: "aucune description",
     },
-    color: {
-      type: String,
+    durationHour: {
+      type: Number,
     },
     unitPrice: {
       type: Number,
@@ -25,11 +28,6 @@ const ProductSchema = new mongoose.Schema(
     photo: {
       type: String,
       default: "no-photo.png",
-    },
-    productCategory: {
-      type: mongoose.Schema.Types.ObjectId,
-      ref: "ProductCategory",
-      required: true,
     },
   },
 
@@ -40,4 +38,4 @@ const ProductSchema = new mongoose.Schema(
   }
 );
 
-module.exports = mongoose.model("Product", ProductSchema);
+module.exports = mongoose.model("Service", ServiceSchema);

@@ -16,6 +16,9 @@ const Certificat = require('./models/Certificat')
 const Waste = require('./models/Waste')
 const ProductCategory = require('./models/ProductCategory')
 const Product = require('./models/Product')
+const Service = require('./models/Service')
+const Order = require('./models/Order')
+const OrderLigne = require('./models/OrderLigne')
 // Connect to DB
 mongoose.set('strictQuery', false)
 mongoose.connect(process.env.MONGO_URI, {
@@ -51,6 +54,15 @@ const productCategories = JSON.parse(
 const products = JSON.parse(
   fs.readFileSync(`${__dirname}/_data/Products.json`, 'utf-8'),
 )
+const services = JSON.parse(
+  fs.readFileSync(`${__dirname}/_data/services.json`, 'utf-8'),
+)
+const orders = JSON.parse(
+  fs.readFileSync(`${__dirname}/_data/orders.json`, 'utf-8'),
+)
+const orderLignes = JSON.parse(
+  fs.readFileSync(`${__dirname}/_data/orderLignes.json`, 'utf-8'),
+)
 
 // Import into DB
 const importData = async () => {
@@ -63,6 +75,9 @@ const importData = async () => {
     await Waste.create(wastes)
     await ProductCategory.create(productCategories)
     await Product.create(products)
+    await Service.create(services)
+    await Order.create(orders)
+    await OrderLigne.create(orderLignes)
     console.log('Data Imported...'.green.inverse)
     process.exit()
   } catch (err) {
@@ -81,6 +96,9 @@ const deleteData = async () => {
     await Waste.deleteMany()
     await ProductCategory.deleteMany()
     await Product.deleteMany()
+    await Service.deleteMany()
+    await Order.deleteMany()
+    await OrderLigne.deleteMany()
     console.log('Data Destroyed...'.red.inverse)
     process.exit()
   } catch (err) {

@@ -6,6 +6,8 @@ const Collect = require("../models/Collect");
 const CollectPoint = require("../models/CollectPoint");
 const User = require("../models/User");
 
+
+
 //@description:     Get all collects
 //@ route:          GET /krysto/api/v1/collects
 //@access:          Public
@@ -29,8 +31,8 @@ exports.getCollect = asyncHandler(async (req, res, next) => {
   res.status(200).json({ success: true, data: collect });
 });
 
-//@description:     Create a collect
-//@ route:          POST /krysto/api/v2/collectPoints/:collectPointId/collects
+//@description:     Create a collect for specific collect point
+//@ route:          POST /krysto/api/v1/collectPoints/:collectPointId/collects
 //@access:          Private
 exports.createCollect = asyncHandler(async (req, res, next) => {
     req.body.collectPoint = req.params.collectPointId;
@@ -52,7 +54,7 @@ exports.createCollect = asyncHandler(async (req, res, next) => {
     });
   });
 
-//@description:     Create a collect
+//@description:     Create a collect for specific collect point
 //@ route:          POST /krysto/api/v2/collectPoints/:collectPointId/collects
 //@access:          Private
 exports.createCollect = asyncHandler(async (req, res, next) => {

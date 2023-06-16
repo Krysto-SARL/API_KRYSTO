@@ -2,7 +2,6 @@ const path = require('path')
 const ErrorResponse = require('../utils/errorResponse')
 const asyncHandler = require('../middlewares/async')
 const ProductCategory = require('../models/ProductCategory')
-const { log } = require('console')
 
 //@description:     Get all product categories
 //@ route:          GET /krysto/api/v2/productCategories

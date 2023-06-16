@@ -1,0 +1,39 @@
+[
+
+  
+    {
+      "_id": "5d7a514b5d2c12c7449de320",
+      "name": "animation commerciale petit format",
+      "detail" : "dskfjkdjflk", 
+      "moreDetails" : "",
+      "durationHour": "4",
+      "unitPrice": 650000
+    },
+    {
+      "_id": "5d7a514b5d2c12c7449de321",
+      "name": "animation commerciale grand format",
+      "detail" : "dfhjkdhfj", 
+      "moreDetails" : "",
+      "durationHour": "4",
+      "unitPrice": 650000
+    },
+    {
+      "_id": "5d7a514b5d2c12c7449de322",
+      "name": "animation Team bulding",
+      "detail" : "Au sein de votre entreprise,renforcez les liens entre vos collaborateurs avec un team building original et éco-responsable.", 
+      "moreDetails" : "Notre équipe d'animateurs expérimentés est là pour vous accompagner tout au long du processus. Nous personnalisons chaque team building en fonction de vos besoins spécifiques, de la taille de votre groupe et de vos objectifs. Notre approche ludique et interactive garantit une expérience mémorable qui laissera une empreinte positive à la fois sur vos collaborateurs et sur l'environnement.",
+      "durationHour": "4",
+      "unitPrice": 650000
+    },
+    {
+        "_id": "5d7a514b5d2c12c7449de323",
+        "name": "animation Team bulding",
+        "detail" : "Destinés aux établissements scolaires et péri-scolaires, nos ateliers permettent de sensibiliser les enfants sur l’impact du plastique grâce à des activités ludiques et écologiques.", 
+        "moreDetails" : "Notre équipe d'animateurs expérimentés est là pour vous accompagner tout au long du processus. Nous personnalisons chaque team building en fonction de vos besoins spécifiques, de la taille de votre groupe et de vos objectifs. Notre approche ludique et interactive garantit une expérience mémorable qui laissera une empreinte positive à la fois sur vos collaborateurs et sur l'environnement.",
+        "durationHour": "4",
+        "unitPrice": 650000
+      }
+    
+  
+  ]
+  

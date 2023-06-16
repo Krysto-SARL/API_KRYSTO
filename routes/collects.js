@@ -1,28 +1,28 @@
-const express = require('express')
+const express = require("express");
 // get controller function
 const {
   getCollects,
   createCollect,
   getCollect,
   updateCollect,
-} = require('../controllers/collects')
-const router = express.Router({ mergeParams: true })
-const { protect, authorize } = require('../middlewares/auth')
-const Collect = require('../models/Collect')
-const advancedResults = require('../middlewares/advancedResults')
-const certificatRouter = require('./certificats')
+} = require("../controllers/collects");
+const router = express.Router({ mergeParams: true });
+const { protect, authorize } = require("../middlewares/auth");
+const Collect = require("../models/Collect");
+const advancedResults = require("../middlewares/advancedResults");
+const certificatRouter = require("./certificats");
 
-router.use('/:collectId/certificats', certificatRouter)
+router.use("/:collectId/certificats", certificatRouter);
 
 router
-  .route('/')
+  .route("/")
   .get(
     advancedResults(Collect, {
-      path: 'collectPoint certificat',
+      path: "collectPoint certificat",
     }),
-    getCollects,
+    getCollects
   )
-  .post(createCollect)
-router.route('/:id').get(getCollect).put(updateCollect)
+  .post(createCollect);
+router.route("/:id").get(getCollect).put(updateCollect);
 
-module.exports = router
+module.exports = router;
