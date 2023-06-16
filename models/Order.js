@@ -1,12 +1,13 @@
-const mongoose = require("mongoose");
+const mongoose = require('mongoose')
 
 const OrderSchema = new mongoose.Schema(
   {
-    client: {
+    user: {
       type: mongoose.Schema.Types.ObjectId,
-      ref: "user",
+      ref: 'User',
       required: true,
     },
+
     devis: {
       type: Boolean,
       default: true,
@@ -23,9 +24,9 @@ const OrderSchema = new mongoose.Schema(
     },
     remarque: {
       type: String,
-      required: [true, "Aucune déscription"],
-      maxlength: [500, "Name can not be more than 500 characters"],
-      default: "aucune description",
+      required: [true, 'Aucune déscription'],
+      maxlength: [500, 'Name can not be more than 500 characters'],
+      default: 'aucune description',
     },
   },
 
@@ -33,7 +34,16 @@ const OrderSchema = new mongoose.Schema(
     timestamps: true,
     toJSON: { virtuals: true },
     toObject: { virtuals: true },
-  }
-);
+  },
+)
 
-module.exports = mongoose.model("Order", OrderSchema);
+// reverse populate with virtuals
+
+OrderSchema.virtual('orderLignes', {
+  ref: 'OrderLigne',
+  localField: '_id',
+  foreignField: 'order',
+  justOne: false,
+})
+
+module.exports = mongoose.model('Order', OrderSchema)

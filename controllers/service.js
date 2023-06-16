@@ -23,8 +23,16 @@ exports.getService = asyncHandler(async (req, res, next) => {
   res.status(200).json({ success: true, data: service })
 })
 
-// TODO CREATE SERVICE
-
+//@description:     Create new service
+//@ route:          POST /krysto/api/v1/services
+//@access:          Public
+exports.createService = asyncHandler(async (req, res, next) => {
+  const service = await Service.create(req.body)
+  res.status(201).json({
+    success: true,
+    data: service,
+  })
+})
 
 //@description:     Update service
 //@ route:          PUT /krysto/api/v1/services/:id
@@ -68,55 +76,55 @@ exports.deleteService = asyncHandler(async (req, res, next) => {
   res.status(200).json({ success: true, data: {} })
 })
 
-// // @desc      Upload photo for product category
-// // @route     PUT /api/v1/productCategories/:id/photo
+// // @desc      Upload photo for service
+// // @route     PUT /api/v1/service/:id/photo
 // // @access    Private
-// exports.productPhotoUpload = asyncHandler(async (req, res, next) => {
-//   const product = await Product.findById(req.params.id)
+exports.servicePhotoUpload = asyncHandler(async (req, res, next) => {
+  const service = await Service.findById(req.params.id)
 
-//   if (!product) {
-//     return next(
-//       new ErrorResponse(`Product  not found with id of ${req.params.id}`, 404),
-//     )
-//   }
+  if (!service) {
+    return next(
+      new ErrorResponse(`Service  not found with id of ${req.params.id}`, 404),
+    )
+  }
 
-//   if (!req.files) {
-//     return next(new ErrorResponse(`Please upload a file`, 400))
-//   }
+  if (!req.files) {
+    return next(new ErrorResponse(`Please upload a file`, 400))
+  }
 
-//   const file = req.files.photo
+  const file = req.files.photo
 
-//   //   console.log(file)
+  //   console.log(file)
 
-//   // Make sure the image is a photo
-//   if (!file.mimetype.startsWith('image')) {
-//     return next(new ErrorResponse(`Please upload an image file`, 400))
-//   }
+  // Make sure the image is a photo
+  if (!file.mimetype.startsWith('image')) {
+    return next(new ErrorResponse(`Please upload an image file`, 400))
+  }
 
-//   // Check filesize
-//   if (file.size > process.env.MAX_FILE_UPLOAD) {
-//     return next(
-//       new ErrorResponse(
-//         `Please upload an image less than ${process.env.MAX_FILE_UPLOAD}`,
-//         400,
-//       ),
-//     )
-//   }
+  // Check filesize
+  if (file.size > process.env.MAX_FILE_UPLOAD) {
+    return next(
+      new ErrorResponse(
+        `Please upload an image less than ${process.env.MAX_FILE_UPLOAD}`,
+        400,
+      ),
+    )
+  }
 
-//   // Create custom filename
-//   file.name = `product_photo_${product._id}${path.parse(file.name).ext}`
+  // Create custom filename
+  file.name = `service_photo_${service._id}${path.parse(file.name).ext}`
 
-//   file.mv(`${process.env.FILE_UPLOAD_PATH}/${file.name}`, async (err) => {
-//     if (err) {
-//       console.error(err)
-//       return next(new ErrorResponse(`Problem with file upload`, 500))
-//     }
+  file.mv(`${process.env.FILE_UPLOAD_PATH}/${file.name}`, async (err) => {
+    if (err) {
+      console.error(err)
+      return next(new ErrorResponse(`Problem with file upload`, 500))
+    }
 
-//     await Product.findByIdAndUpdate(req.params.id, { photo: file.name })
+    await Service.findByIdAndUpdate(req.params.id, { photo: file.name })
 
-//     res.status(200).json({
-//       success: true,
-//       data: file.name,
-//     })
-//   })
-// })
+    res.status(200).json({
+      success: true,
+      data: file.name,
+    })
+  })
+})

@@ -1,39 +1,39 @@
-const mongoose = require("mongoose");
+const mongoose = require('mongoose')
 
 const OrderLigneSchema = new mongoose.Schema(
   {
     order: {
       type: mongoose.Schema.Types.ObjectId,
-      ref: "order",
+      ref: 'Order',
       required: true,
     },
     product: {
       type: mongoose.Schema.Types.ObjectId,
-      ref: "product",
+      ref: 'product',
       required: false,
     },
     service: {
       type: mongoose.Schema.Types.ObjectId,
-      ref: "service",
+      ref: 'service',
       required: false,
     },
 
     tgc: {
-      type:  Number,
+      type: Number,
       default: 0,
     },
-  
+
     remise: {
       type: Number,
-      default: 0
-    }
+      default: 0,
+    },
   },
 
   {
     timestamps: true,
     toJSON: { virtuals: true },
     toObject: { virtuals: true },
-  }
-);
+  },
+)
 
-module.exports = mongoose.model("OrderLigne", OrderLigneSchema);
+module.exports = mongoose.model('OrderLigne', OrderLigneSchema)

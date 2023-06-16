@@ -100,7 +100,7 @@ app.use('/krysto-go/api/v1/productCategories', productCategories)
 app.use('/krysto-go/api/v1/products', products)
 app.use('/krysto-go/api/v1/services', services)
 app.use('/krysto-go/api/v1/orders', orders)
-app.use('/krysto-go/api/v1/orderLignes', orderLignes)
+app.use('/krysto-go/api/v1/orderLines', orderLignes)
 app.use(errorHandler)
 
 const PORT = process.env.PORT || 8080

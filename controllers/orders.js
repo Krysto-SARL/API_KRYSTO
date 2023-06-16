@@ -6,15 +6,38 @@ const Order = require('../models/Order')
 //@description:     Get all orders
 //@ route:          GET /krysto/api/v1/orders
 //@access:          Public
+// exports.getOrders = asyncHandler(async (req, res, next) => {
+//   res.status(200).json(res.advancedResults)
+// })
+
+//@description:     Get all orderLignes
+//@ route:          GET /krysto/api/v1/orders
+//@ route:          GET /krysto/api/v1/users/:userId/orders
+//@access:          Public
 exports.getOrders = asyncHandler(async (req, res, next) => {
-  res.status(200).json(res.advancedResults)
+  let query
+  if (req.params.userId) {
+    query = Order.find({ user: req.params.userId })
+  } else {
+    return res.status(200).json(res.advancedResults)
+  }
+
+  const orders = await query
+
+  res.status(200).json({
+    success: true,
+    count: orders.length,
+    data: orders,
+  })
 })
 
 //@description:     Get a single order
 //@ route:          GET /krysto/api/v1/:id
 //@access:          Public
 exports.getOrder = asyncHandler(async (req, res, next) => {
-  const order = await Order.findById(req.params.id)
+  const order = await Order.findById(req.params.id).populate({
+    path: 'user orderLignes',
+  })
   if (!order) {
     return next(
       new ErrorResponse(`order not found with ID of ${req.params.id}`, 404),
@@ -24,7 +47,6 @@ exports.getOrder = asyncHandler(async (req, res, next) => {
 })
 
 // TO DO CREATE ORDER
-
 
 //@description:     Update order
 //@ route:          PUT /krysto/api/v1/orders/:id
