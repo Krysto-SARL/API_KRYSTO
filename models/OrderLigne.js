@@ -11,11 +11,13 @@ const OrderLigneSchema = new mongoose.Schema(
       type: mongoose.Schema.Types.ObjectId,
       ref: 'Product',
       required: false,
+      default: null,
     },
     service: {
       type: mongoose.Schema.Types.ObjectId,
       ref: 'Service',
       required: false,
+      default: null,
     },
     quantity: {
       type: Number,
@@ -41,19 +43,65 @@ const OrderLigneSchema = new mongoose.Schema(
   },
 )
 
-// Ajouter un hook "pre" pour mettre à jour le montant de la remise avant chaque sauvegarde
+// ajouter la remise
+
 OrderLigneSchema.pre('save', function (next) {
-  // Vérifier si la quantité commandée est supérieure à une valeur spécifique pour appliquer une remise
-  if (this.quantity >= 10) {
-    // Appliquer une remise de 10% si la quantité commandée est supérieure ou égale à 10
-    this.discount = this.quantity * 0.1 * 10
-  } else if (this.quantity >= 20) {
-    this.discount = this.quantity * 0.2 * 10
+  if (this.quantity >= 1 && this.quantity <= 10) {
+    // Aucune remise pour une quantité de 1 à 10
+    this.discount = 0
+  } else if (this.quantity >= 11 && this.quantity <= 50) {
+    // Appliquer une remise de 5% pour une quantité de 11 à 50
+    this.discount = 5
+  } else if (this.quantity >= 51 && this.quantity <= 100) {
+    // Appliquer une remise de 10% pour une quantité de 51 à 100
+    this.discount = 10
+  } else if (this.quantity > 100) {
+    // Appliquer une remise de 15% pour une quantité supérieure à 100
+    this.discount = 15
   } else {
-    // Réinitialiser la remise à zéro si la quantité commandée est inférieure à 10
+    // Réinitialiser la remise à zéro si la quantité est inférieure à 1
     this.discount = 0
   }
   next()
 })
 
+// Calculer le taux de TGC
+
+OrderLigneSchema.pre('save', function (next) {
+  if (this.product !== null) {
+    // Si le champ "produit" n'est pas nul, le champ "tgc" est mis à 22
+    this.tgc = 22
+  } else if (this.service !== null) {
+    // Si le champ "service" n'est pas nul, le champ "tgc" est mis à 3%
+    this.tgc = 3
+  } else {
+    // Si à la fois le champ "produit" et le champ "service" sont nuls, le champ "tgc" est laissé inchangé
+    // Assurez-vous que le champ "tgc" a une valeur par défaut appropriée dans votre schéma
+  }
+  next()
+})
+
 module.exports = mongoose.model('OrderLigne', OrderLigneSchema)
+
+OrderLigneSchema.virtual('totalPrice').get(function () {
+  let totalPrice = 0
+
+  if (this.product !== null) {
+    // Si le champ "produit" n'est pas nul, calculer le prix total en multipliant le prix unitaire du produit par la quantité
+    totalPrice = this.product.unitPrice * this.quantity
+  } else if (this.service !== null) {
+    // Si le champ "service" n'est pas nul, calculer le prix total en multipliant le prix unitaire du service par la quantité
+    totalPrice = this.service.unitPrice * this.quantity
+  }
+
+  // Appliquer la remise sur le prix total en fonction de la quantité
+  const discountAmount = totalPrice * (this.discount / 100)
+  totalPrice -= discountAmount
+
+  // Ajouter le montant de la TGC sur le prix total
+  const tgcAmount = totalPrice * (this.tgc / 100)
+  totalPrice += tgcAmount
+  // Arrondir le prix total à l'entier le plus proche
+  totalPrice = Math.round(totalPrice)
+  return totalPrice
+})

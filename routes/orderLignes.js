@@ -11,7 +11,12 @@ const { protect, authorize } = require('../middlewares/auth')
 const OrderLigne = require('../models/OrderLigne')
 const advancedResults = require('../middlewares/advancedResults')
 
-router.route('/').get(advancedResults(OrderLigne), getOrderLignes)
+router.route('/').get(
+  advancedResults(OrderLigne, {
+    path: 'product service order',
+  }),
+  getOrderLignes,
+)
 router
   .route('/:id')
   .get(getOrderLigne)

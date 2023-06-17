@@ -30,7 +30,7 @@ exports.getOrderLignes = asyncHandler(async (req, res, next) => {
 //@access:          Public
 exports.getOrderLigne = asyncHandler(async (req, res, next) => {
   const orderLigne = await OrderLigne.findById(req.params.id).populate({
-    path: 'order',
+    path: 'order product service',
   })
   if (!orderLigne) {
     return next(
