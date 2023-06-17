@@ -82,26 +82,3 @@ OrderLigneSchema.pre('save', function (next) {
 })
 
 module.exports = mongoose.model('OrderLigne', OrderLigneSchema)
-
-OrderLigneSchema.virtual('totalPrice').get(function () {
-  let totalPrice = 0
-
-  if (this.product !== null) {
-    // Si le champ "produit" n'est pas nul, calculer le prix total en multipliant le prix unitaire du produit par la quantité
-    totalPrice = this.product.unitPrice * this.quantity
-  } else if (this.service !== null) {
-    // Si le champ "service" n'est pas nul, calculer le prix total en multipliant le prix unitaire du service par la quantité
-    totalPrice = this.service.unitPrice * this.quantity
-  }
-
-  // Appliquer la remise sur le prix total en fonction de la quantité
-  const discountAmount = totalPrice * (this.discount / 100)
-  totalPrice -= discountAmount
-
-  // Ajouter le montant de la TGC sur le prix total
-  const tgcAmount = totalPrice * (this.tgc / 100)
-  totalPrice += tgcAmount
-  // Arrondir le prix total à l'entier le plus proche
-  totalPrice = Math.round(totalPrice)
-  return totalPrice
-})
