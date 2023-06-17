@@ -21,7 +21,7 @@ const CollectPointSchema = new mongoose.Schema(
     box: {
       type: String,
       enum: ['Maxigo', 'Minigo', 'Kadnabox', 'PaperBox', 'Autre'],
-      default: 'Maxigo',
+      default: 'Autre',
     },
 
     partnerName: {

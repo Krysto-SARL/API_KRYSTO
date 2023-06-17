@@ -2,6 +2,7 @@ const path = require('path')
 const ErrorResponse = require('../utils/errorResponse')
 const asyncHandler = require('../middlewares/async')
 const Order = require('../models/Order')
+const User = require('../models/User')
 
 //@description:     Get all orders
 //@ route:          GET /krysto/api/v1/orders
@@ -46,7 +47,31 @@ exports.getOrder = asyncHandler(async (req, res, next) => {
   res.status(200).json({ success: true, data: order })
 })
 
-// TO DO CREATE ORDER
+//@description:     Create order for a specific user
+//@ route:          POST /krysto/api/v1/users/:userId/orders
+//@access:          Private
+exports.createOrder = asyncHandler(async (req, res, next) => {
+  // Récupérer l'ID de l'utilisateur à partir des paramètres de la requête
+  const userId = req.params.userId
+
+  // Vérifier si l'utilisateur existe
+  const user = await User.findById(userId)
+
+  if (!user) {
+    return next(new ErrorResponse(`No user with the id of ${userId}`, 404))
+  }
+
+  // Créer la commande avec les données de la requête
+  const order = await Order.create({
+    user: userId,
+    ...req.body,
+  })
+
+  res.status(201).json({
+    success: true,
+    data: order,
+  })
+})
 
 //@description:     Update order
 //@ route:          PUT /krysto/api/v1/orders/:id

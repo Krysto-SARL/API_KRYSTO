@@ -5,6 +5,7 @@ const {
   getOrder,
   updateOrder,
   deleteOrder,
+  createOrder,
 } = require('../controllers/orders')
 
 const router = express.Router({ mergeParams: true })
@@ -17,12 +18,15 @@ const path = require('path')
 router.use('/:orderId/orderLines', orderLigneRouter)
 // include another source router
 
-router.route('/').get(
-  advancedResults(Order, {
-    path: 'orderLignes',
-  }),
-  getOrders,
-)
+router
+  .route('/')
+  .get(
+    advancedResults(Order, {
+      path: 'orderLignes',
+    }),
+    getOrders,
+  )
+  .post(createOrder)
 router.route('/:id').get(getOrder).put(updateOrder).delete(deleteOrder)
 
 module.exports = router

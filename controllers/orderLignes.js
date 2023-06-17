@@ -43,28 +43,33 @@ exports.getOrderLigne = asyncHandler(async (req, res, next) => {
   res.status(200).json({ success: true, data: orderLigne })
 })
 
-// // @description:     Create order ligne for specific order
-// // @ route:          POST /krysto/api/v1/orders/:orderId/orderLignes
-// // @access:          Private
-// exports.createOrderLigne = asyncHandler(async (req, res, next) => {
-//     req.body.order = req.params.orderId;
+// @description:     Create order ligne for specific order
+// @route:          POST /krysto/api/v1/orders/:orderId/orderLignes
+// @access:          Private
+exports.createOrderLigne = asyncHandler(async (req, res, next) => {
+  // Récupérer l'ID de la commande à partir des paramètres de la requête
+  const orderId = req.params.orderId
 
-//     const order = await Order.findById(req.params.orderId);
+  // Rechercher la commande dans la base de données
+  const order = await Order.findById(orderId)
 
-//     if (!order) {
-//       return next(
-//         new ErrorResponse(`No order with the id of ${req.params.orderId}`),
-//         404
-//       );
-//     }
+  // Vérifier si la commande existe
+  if (!order) {
+    return next(new ErrorResponse(`No order with the id of ${orderId}`), 404)
+  }
 
-//     const orderLigne = await OrderLigne.create(req.body);
+  // Assigner l'ID de la commande à la propriété "order" de la requête
+  req.body.order = orderId
 
-//     res.status(200).json({
-//       success: true,
-//       data: orderLigne,
-//     });
-//   });
+  // Créer une nouvelle instance d'OrderLigne avec les données de la requête
+  const orderLigne = await OrderLigne.create(req.body)
+
+  // Envoyer une réponse JSON avec les détails de la nouvelle OrderLigne créée
+  res.status(200).json({
+    success: true,
+    data: orderLigne,
+  })
+})
 
 //@description:     Update order ligne
 //@ route:          PUT /krysto/api/v1/collectPoints/:id
