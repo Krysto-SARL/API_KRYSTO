@@ -12,6 +12,10 @@ const router = express.Router({ mergeParams: true })
 const { protect, authorize } = require('../middlewares/auth')
 const ProductCategory = require('../models/ProductCategory')
 const advancedResults = require('../middlewares/advancedResults')
+const productRouter = require('./products')
+//re-route into other ressource router
+router.use('/:categoryId/products', productRouter)
+// include another source router
 
 router
   .route('/')

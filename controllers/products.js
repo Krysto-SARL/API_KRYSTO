@@ -2,6 +2,7 @@ const path = require('path')
 const ErrorResponse = require('../utils/errorResponse')
 const asyncHandler = require('../middlewares/async')
 const Product = require('../models/Product')
+const ProductCategory = require('../models/ProductCategory')
 
 //@description:     Get all products
 //@ route:          GET /krysto/api/v2/products
@@ -23,26 +24,31 @@ exports.getProduct = asyncHandler(async (req, res, next) => {
   res.status(200).json({ success: true, data: product })
 })
 
-//@description:     Create new collect point
-//@ route:          POST /krysto/api/v1/partners
+//@description:     Create new product for a specific product category
+//@ route:          POST /krysto/api/v1/productCategories/:categoryId/products
 //@access:          Private
 exports.createProduct = asyncHandler(async (req, res, next) => {
-  // Add user to req.body
+  // Récupérer l'ID de la catégorie de produits à partir des paramètres de la requête
+  const categoryId = req.params.categoryId
 
-  // // Check for published partner
-  // const publishedUser = await CollectPoint.findOne({ user: req.user.id });
+  // Vérifier si la catégorie de produits existe
+  const productCategory = await ProductCategory.findById(categoryId)
 
-  // // If the user is not an admin, they can only add one collect point
-  // if (publishedUser && req.user.role != "admin") {
-  //   return next(
-  //     new ErrorResponse(
-  //       `The user with ID ${req.user.id} has already published a collect point`,
-  //       400
-  //     )
-  //   );
-  // }
+  if (!productCategory) {
+    return next(
+      new ErrorResponse(
+        `No product category with the id of ${categoryId}`,
+        404,
+      ),
+    )
+  }
 
-  const product = await Product.create(req.body)
+  // Créer le produit avec les données de la requête
+  const product = await Product.create({
+    productCategory: categoryId,
+    ...req.body,
+  })
+
   res.status(201).json({
     success: true,
     data: product,
