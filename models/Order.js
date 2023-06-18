@@ -15,7 +15,7 @@ const OrderSchema = new mongoose.Schema(
 
     devis: {
       type: Boolean,
-      default: true,
+      default: false,
     },
     billsDate: {
       type: Date,
@@ -23,6 +23,11 @@ const OrderSchema = new mongoose.Schema(
     payment: {
       type: Boolean,
       default: false,
+    },
+    status: {
+      type: String,
+      enum: ['en cours', 'en progression', 'devis', 'signée', 'fermée'],
+      default: 'en progression',
     },
     paymentDate: {
       type: Date,
@@ -69,7 +74,13 @@ OrderSchema.pre('save', async function (next) {
 
   next()
 })
-
+// Middleware pre-save pour mettre à jour le statut si le paiement est effectué
+OrderSchema.pre('save', function (next) {
+  if (this.isModified('payment') && this.payment === true) {
+    this.status = 'fermée'
+  }
+  next()
+})
 // reverse populate with virtuals
 
 OrderSchema.virtual('orderLignes', {

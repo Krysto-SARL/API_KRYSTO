@@ -2,7 +2,7 @@ const mongoose = require('mongoose')
 
 const ProductSchema = new mongoose.Schema(
   {
-    refference: {
+    reference: {
       type: String,
       required: true,
     },

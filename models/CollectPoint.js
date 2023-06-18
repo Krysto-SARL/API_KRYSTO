@@ -33,7 +33,7 @@ const CollectPointSchema = new mongoose.Schema(
       required: [true, 'Please add an address'],
     },
 
-    qrCode: {
+    qrCodeData: {
       type: String,
       default: 'no-photo.png',
     },
