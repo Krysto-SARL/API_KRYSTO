@@ -55,7 +55,10 @@ const CollectPointSchema = new mongoose.Schema(
       country: String,
     },
 
-    totalRecycled: Number,
+    totalRecycled: {
+      type: Number,
+      default: 0,
+    },
 
     user: {
       type: mongoose.Schema.ObjectId,

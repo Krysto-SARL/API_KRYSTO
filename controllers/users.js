@@ -28,8 +28,8 @@ exports.getUser = asyncHandler(async (req, res, next) => {
 exports.createUser = asyncHandler(async (req, res, next) => {
   const user = await User.create(req.body)
 
-  const message = `Votre compte KRYSTO vient d'être créer ! vous pouvez désormais vous connecter a votre espace client sur le site www.krysto.nc 
-  avec les identifiants suivant : email : ${req.body.email} password: ${req.body.password} n'oubliez pas de changer votre mots de passe `
+  const message = `Votre compte KRYSTO vient d'être créé ! Vous pouvez désormais vous connecter à votre espace client sur le site www.krysto.nc 
+  avec les identifiants suivants : email : ${req.body.email} password: ${req.body.password}. N'oubliez pas de changer votre mot de passe.`
 
   try {
     await sendEmail({
@@ -37,17 +37,11 @@ exports.createUser = asyncHandler(async (req, res, next) => {
       subject: `Création de votre compte ${req.body.role} Krysto`,
       message,
     })
-    res.status(200).json({ success: true, data: 'Email sent' })
+    res.status(201).json({ success: true, data: user })
   } catch (err) {
     console.log(err)
-
     return next(new ErrorResponse('Email could not be sent', 500))
   }
-
-  res.status(201).json({
-    success: true,
-    data: user,
-  })
 })
 
 // @desc      Update user

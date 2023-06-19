@@ -14,15 +14,25 @@ const WasteSchema = new mongoose.Schema(
         'Verre',
         'Capsule',
       ],
-      required: [true, "Merci d'ajouter un type de dechets"],
-      default: 'Plastique',
+      required: [true, "Merci d'ajouter un type de déchets"],
     },
 
     wasteType: String,
 
     plasticType: {
       type: String,
-      enum: ['PET', 'PP', 'HDPE', 'PEHD', 'PS', 'PVC', 'PLA', 'Autres', 'MIX'],
+      enum: [
+        'PET',
+        'PP',
+        'HDPE',
+        'PEHD',
+        'PS',
+        'PVC',
+        'PLA',
+        'Autres',
+        'MIX',
+        '',
+      ],
     },
 
     image: {
@@ -31,8 +41,8 @@ const WasteSchema = new mongoose.Schema(
 
     détails: {
       type: String,
-      maxlength: [100, 'Remarque can not be more than 100 characters'],
-      default: 'Aucun détail pour ce déchets',
+      maxlength: [100, 'Remarque cannot be more than 100 characters'],
+      default: 'Aucun détail pour ce déchet',
     },
   },
   {

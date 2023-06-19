@@ -152,7 +152,7 @@ exports.productCategoryPhotoUpload = asyncHandler(async (req, res, next) => {
 
   const filePromises = files.map((file) => {
     const ext = path.parse(file.name).ext
-    const filename = `photo_${productCategoryId}_${file.name}`
+    const filename = `photo__${file.name}`
 
     return file.mv(`${uploadPath}/${filename}`)
   })
