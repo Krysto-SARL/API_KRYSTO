@@ -5,6 +5,7 @@ const {
   createUser,
   updateUser,
   deleteUser,
+  userLogoUpload,
 } = require('../controllers/users')
 
 const router = express.Router({ mergeParams: true })
@@ -13,6 +14,8 @@ const User = require('../models/User')
 const orderRouter = require('./order')
 const advancedResults = require('../middlewares/advancedResults')
 router.use('/:userId/orders', orderRouter)
+
+router.route('/:id/logo').put(userLogoUpload)
 
 // router.use(protect)
 // router.use(authorize('admin', 'staff'))

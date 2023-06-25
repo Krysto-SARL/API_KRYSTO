@@ -13,6 +13,9 @@ const UserSchema = new mongoose.Schema(
       compagnyName: String,
       ridet: String,
     },
+    userTxt: {
+      type: String,
+    },
 
     email: {
       type: String,
@@ -28,7 +31,10 @@ const UserSchema = new mongoose.Schema(
       enum: ['partner', 'admin', 'recycler'],
       default: 'partner',
     },
-
+    logo: {
+      type: String,
+      default: 'no-photo.png',
+    },
     contact: {
       firstname: String,
       lastname: String,
