@@ -11,9 +11,8 @@ const {
 const router = express.Router({ mergeParams: true })
 const { protect, authorize } = require('../middlewares/auth')
 const User = require('../models/User')
-const orderRouter = require('./order')
+
 const advancedResults = require('../middlewares/advancedResults')
-router.use('/:userId/orders', orderRouter)
 
 router.route('/:id/logo').put(userLogoUpload)
 

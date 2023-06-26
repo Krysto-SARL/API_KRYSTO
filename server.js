@@ -36,8 +36,6 @@ const wastes = require('./routes/wastes')
 const productCategories = require('./routes/productCategories.js')
 const products = require('./routes/products.js')
 const services = require('./routes/services.js')
-const orders = require('./routes/order.js')
-const orderLignes = require('./routes/orderLignes.js')
 
 const collectPoints = require('./routes/collectPoints')
 
@@ -99,8 +97,7 @@ app.use('/krysto-go/api/v1/wastes', wastes)
 app.use('/krysto-go/api/v1/productCategories', productCategories)
 app.use('/krysto-go/api/v1/products', products)
 app.use('/krysto-go/api/v1/services', services)
-app.use('/krysto-go/api/v1/orders', orders)
-app.use('/krysto-go/api/v1/orderLines', orderLignes)
+
 app.use(errorHandler)
 
 const PORT = process.env.PORT || 8080
