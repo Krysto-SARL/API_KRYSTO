@@ -27,6 +27,7 @@ exports.getCertificat = asyncHandler(async (req, res, next) => {
     )
   }
   res.status(200).json({ success: true, data: certificat })
+
 })
 
 //@description:     Create a certificat from a spécific collect

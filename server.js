@@ -87,16 +87,16 @@ app.use(helmet.crossOriginResourcePolicy({ policy: 'cross-origin' }))
 app.use(express.static(path.join(__dirname, 'public')))
 
 //Mount routers
-app.use('/krysto-go/api/v1/auth', auth)
-app.use('/krysto-go/api/v1/users', users)
-app.use('/krysto-go/api/v1/collectPoints', collectPoints)
-app.use('/krysto-go/api/v1/collects', collects)
-app.use('/krysto-go/api/v1/messages', messages)
-app.use('/krysto-go/api/v1/certificats', certificats)
-app.use('/krysto-go/api/v1/wastes', wastes)
-app.use('/krysto-go/api/v1/productCategories', productCategories)
-app.use('/krysto-go/api/v1/products', products)
-app.use('/krysto-go/api/v1/services', services)
+app.use('/api/v1/auth', auth)
+app.use('/api/v1/users', users)
+app.use('/api/v1/collectPoints', collectPoints)
+app.use('/api/v1/collects', collects)
+app.use('/api/v1/messages', messages)
+app.use('/api/v1/certificats', certificats)
+app.use('/api/v1/wastes', wastes)
+app.use('/api/v1/productCategories', productCategories)
+app.use('/api/v1/products', products)
+app.use('/api/v1/services', services)
 
 app.use(errorHandler)
 
@@ -107,7 +107,7 @@ app.get('/', (req, res) => res.render('index'))
 const server = app.listen(
   PORT,
   console.log(
-    `Server running in ${process.env.NODE_ENV} mode on port ${PORT} root URL : http://localhost:${PORT}/krysto-go/api/v1 `
+    `Server running in ${process.env.NODE_ENV} mode on port ${PORT} root URL : http://localhost:${PORT}/api/v1 `
       .white.underline.bold.bgGreen,
   ),
 )
