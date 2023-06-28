@@ -35,6 +35,7 @@ const RecyclableProductSchema = new mongoose.Schema({
     max: 10,
     required: true,
   },
+
   plasticTypes: [
     {
       type: mongoose.Schema.Types.ObjectId,
