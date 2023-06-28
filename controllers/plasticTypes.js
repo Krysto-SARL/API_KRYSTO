@@ -116,7 +116,7 @@ exports.uploadPlasticTypePhoto = asyncHandler(async (req, res, next) => {
     return next(new ErrorResponse(`Please upload a file`, 400))
   }
 
-  const file = req.files.photo
+  const file = req.files.icone
 
   // Check if the uploaded file is an image
   if (!file.mimetype.startsWith('image')) {
@@ -134,7 +134,7 @@ exports.uploadPlasticTypePhoto = asyncHandler(async (req, res, next) => {
   }
 
   // Create custom filename
-  file.name = `photo_${plasticType._id}${path.parse(file.name).ext}`
+  file.name = `icone_${plasticType._id}${path.parse(file.name).ext}`
 
   file.mv(`${process.env.FILE_UPLOAD_PATH}/${file.name}`, async (err) => {
     if (err) {
@@ -143,7 +143,7 @@ exports.uploadPlasticTypePhoto = asyncHandler(async (req, res, next) => {
     }
 
     // Update the plastic type with the photo filename
-    await PlasticType.findByIdAndUpdate(req.params.id, { photo: file.name })
+    await PlasticType.findByIdAndUpdate(req.params.id, { icone: file.name })
 
     res.status(200).json({
       success: true,

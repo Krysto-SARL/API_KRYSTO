@@ -44,6 +44,9 @@ const RecyclableProductSchema = new mongoose.Schema({
 })
 
 // Création du modèle d'articles basé sur le schéma
-const RecyclableProduct = mongoose.model('Article', ArticleSchema)
+const RecyclableProduct = mongoose.model(
+  'RecyclableProduct',
+  RecyclableProductSchema,
+)
 
 module.exports = RecyclableProduct

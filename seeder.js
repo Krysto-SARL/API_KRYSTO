@@ -18,6 +18,7 @@ const ProductCategory = require('./models/ProductCategory')
 const Product = require('./models/Product')
 const Service = require('./models/Service')
 const PlasticType = require('./models/PlasticType')
+const RecyclableProduct = require('./models/RecyclableProduct')
 
 // Connect to DB
 mongoose.set('strictQuery', false)
@@ -60,6 +61,9 @@ const services = JSON.parse(
 const plasticTypes = JSON.parse(
   fs.readFileSync(`${__dirname}/_data/plasticTypes.json`, 'utf-8'),
 )
+const recyclableProducts = JSON.parse(
+  fs.readFileSync(`${__dirname}/_data/recyclableProducts.json`, 'utf-8'),
+)
 
 // Import into DB
 const importData = async () => {
@@ -74,6 +78,7 @@ const importData = async () => {
     await Product.create(products)
     await Service.create(services)
     await PlasticType.create(plasticTypes)
+    await RecyclableProduct.create(recyclableProducts)
 
     console.log('Data Imported...'.green.inverse)
     process.exit()
@@ -95,6 +100,7 @@ const deleteData = async () => {
     await Product.deleteMany()
     await Service.deleteMany()
     await PlasticType.deleteMany()
+    await RecyclableProduct.deleteMany()
 
     console.log('Data Destroyed...'.red.inverse)
     process.exit()

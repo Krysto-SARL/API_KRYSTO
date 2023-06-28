@@ -15,16 +15,14 @@ const advancedResults = require('../middlewares/advancedResults')
 router
   .route('/')
   .get(advancedResults(PlasticType), getPlasticTypes)
-  .post(protect, authorize('admin'), createPlasticType)
+  .post(createPlasticType)
 
 router
   .route('/:id')
   .get(getPlasticType)
-  .delete(protect, authorize('admin'), deletePlasticType)
-  .put(protect, authorize('admin'), updatePlasticType)
+  .delete(deletePlasticType)
+  .put(updatePlasticType)
 
-router
-  .route('/:id/photo')
-  .put(protect, authorize('admin'), uploadPlasticTypePhoto)
+router.route('/:id/icone').put(uploadPlasticTypePhoto)
 
 module.exports = router
