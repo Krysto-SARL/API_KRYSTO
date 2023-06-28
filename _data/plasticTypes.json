@@ -1,0 +1,163 @@
+[
+  {
+    "_id": "737a3694e5fc335f796a4942",
+    "sigleFr": "PET",
+    "sigleEn": "PET",
+    "scientificNameFr": "Polyéthylène Téréphtalate",
+    "scientificNameEn": "Polyethylene Terephthalate",
+    "description": "Le PET est couramment utilisé pour les bouteilles en plastique transparentes et les emballages alimentaires.",
+    "icone": "pet.png",
+    "flotability": {
+      "alcohol": true,
+      "vegetableOil": false,
+      "water": true,
+      "glycerine": false
+    },
+    "injectionTemperature": "250-280°C",
+    "density": 1.38,
+    "meltingPoint": 260,
+    "heatResistance": "Bon",
+    "chemicalResistance": "Moyenne",
+    "rigidity": "Semi-rigide",
+    "toxicity": "Isolant",
+    "environmentalImpact": "Recyclable"
+  },
+  {
+    "_id": "737a3694e5fc335f796a4943",
+    "sigleFr": "HDPE",
+    "sigleEn": "HDPE",
+    "scientificNameFr": "Polyéthylène Haute Densité",
+    "scientificNameEn": "High-Density Polyethylene",
+    "description": "Le HDPE est utilisé pour les bouteilles de lait, les sacs en plastique et les conteneurs de produits chimiques.",
+    "icone": "hdpe.png",
+    "flotability": {
+      "alcohol": false,
+      "vegetableOil": false,
+      "water": true,
+      "glycerine": false
+    },
+    "injectionTemperature": "220-270°C",
+    "density": 0.95,
+    "meltingPoint": 135,
+    "heatResistance": "Bon",
+    "chemicalResistance": "Bonne",
+    "rigidity": "Rigide",
+    "toxicity": "Isolant",
+    "environmentalImpact": "Recyclable"
+  },
+  {
+    "_id": "737a3694e5fc335f796a4944",
+    "sigleFr": "PVC",
+    "sigleEn": "PVC",
+    "scientificNameFr": "Chlorure de Polyvinyle",
+    "scientificNameEn": "Polyvinyl Chloride",
+    "description": "Le PVC est utilisé dans les tuyaux, les revêtements de sol, les fenêtres et les jouets.",
+    "icone": "pvc.png",
+    "flotability": {
+      "alcohol": false,
+      "vegetableOil": false,
+      "water": false,
+      "glycerine": false
+    },
+    "injectionTemperature": "160-220°C",
+    "density": 1.4,
+    "meltingPoint": 212,
+    "heatResistance": "Bon",
+    "chemicalResistance": "Bonne",
+    "rigidity": "Rigide",
+    "toxicity": "Isolant",
+    "environmentalImpact": "Non Recyclable"
+  },
+  {
+    "_id": "737a3694e5fc335f796a4945",
+    "sigleFr": "LDPE",
+    "sigleEn": "LDPE",
+    "scientificNameFr": "Polyéthylène Basse Densité",
+    "scientificNameEn": "Low-Density Polyethylene",
+    "description": "Le LDPE est utilisé pour les sacs en plastique, les films d'emballage et les revêtements.",
+    "icone": "ldpe.png",
+    "flotability": {
+      "alcohol": false,
+      "vegetableOil": false,
+      "water": true,
+      "glycerine": false
+    },
+    "injectionTemperature": "170-220°C",
+    "density": 0.92,
+    "meltingPoint": 115,
+    "heatResistance": "Moyen",
+    "chemicalResistance": "Moyenne",
+    "rigidity": "Flexible",
+    "toxicity": "Isolant",
+    "environmentalImpact": "Recyclable"
+  },
+  {
+    "_id": "737a3694e5fc335f796a4946",
+    "sigleFr": "PP",
+    "sigleEn": "PP",
+    "scientificNameFr": "Polypropylène",
+    "scientificNameEn": "Polypropylene",
+    "description": "Le PP est utilisé pour les emballages alimentaires, les bouchons de bouteilles et les fibres textiles.",
+    "icone": "pp.png",
+    "flotability": {
+      "alcohol": false,
+      "vegetableOil": false,
+      "water": false,
+      "glycerine": false
+    },
+    "injectionTemperature": "200-280°C",
+    "density": 0.9,
+    "meltingPoint": 165,
+    "heatResistance": "Très bon",
+    "chemicalResistance": "Bonne",
+    "rigidity": "Rigide",
+    "toxicity": "Isolant",
+    "environmentalImpact": "Recyclable"
+  },
+  {
+    "_id": "737a3694e5fc335f796a4947",
+    "sigleFr": "PS",
+    "sigleEn": "PS",
+    "scientificNameFr": "Polystyrène",
+    "scientificNameEn": "Polystyrene",
+    "description": "Le PS est utilisé pour les gobelets en plastique, les emballages d'œufs et les matériaux d'isolation.",
+    "icone": "ps.png",
+    "flotability": {
+      "alcohol": false,
+      "vegetableOil": false,
+      "water": false,
+      "glycerine": false
+    },
+    "injectionTemperature": "180-250°C",
+    "density": 1.05,
+    "meltingPoint": 240,
+    "heatResistance": "Moyen",
+    "chemicalResistance": "Moyenne",
+    "rigidity": "Rigide",
+    "toxicity": "Isolant",
+    "environmentalImpact": "Recyclable"
+  },
+  {
+    "_id": "737a3694e5fc335f796a4948",
+    "sigleFr": "Other",
+    "sigleEn": "Other",
+    "scientificNameFr": "Autre",
+    "scientificNameEn": "Other",
+    "description": "Autres types de plastique qui ne correspondent pas aux catégories standard.",
+    "icone": "other.png",
+    "flotability": {
+      "alcohol": false,
+      "vegetableOil": false,
+      "water": false,
+      "glycerine": false
+    },
+    "injectionTemperature": "Varie",
+    "density": 0,
+    "meltingPoint": 0,
+    "heatResistance": "Varie",
+    "chemicalResistance": "Varie",
+    "rigidity": "Varie",
+    "toxicity": "Varie",
+    "environmentalImpact": "Varie"
+  }
+]

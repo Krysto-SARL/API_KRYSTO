@@ -36,6 +36,7 @@ const wastes = require('./routes/wastes')
 const productCategories = require('./routes/productCategories.js')
 const products = require('./routes/products.js')
 const services = require('./routes/services.js')
+const plasticTypes = require('./routes/plasticTypes')
 
 const collectPoints = require('./routes/collectPoints')
 
@@ -97,6 +98,7 @@ app.use('/api/v1/wastes', wastes)
 app.use('/api/v1/productCategories', productCategories)
 app.use('/api/v1/products', products)
 app.use('/api/v1/services', services)
+app.use('/api/v1/plasticTypes', plasticTypes)
 
 app.use(errorHandler)
 
