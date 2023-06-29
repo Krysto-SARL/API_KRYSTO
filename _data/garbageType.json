@@ -1,0 +1,46 @@
+[
+  {
+    "_id": "337a2e4122b12690420041d1",
+    "name": "Plastique",
+    "image": "plastic_bottles.jpg",
+    "containerColor": "blue",
+    "détails": ""
+  },
+  {
+    "_id": "337a2e4122b12690420041d2",
+    "name": "Papier & Cartons",
+    "containerColor": "yellow",
+    "détails": ""
+  },
+  {
+    "_id": "337a2e4122b12690420041d3",
+    "name": "Verre",
+    "containerColor": "green",
+    "détails": ""
+  },
+  {
+    "_id": "337a2e4122b12690420041d4",
+    "name": "Dechets organiques",
+    "containerColor": "brown",
+    "détails": ""
+  },
+  {
+    "_id": "337a2e4122b12690420041d5",
+    "name": "Piles et accumulateurs"
+  },
+  {
+    "_id": "337a2e4122b12690420041d6",
+    "name": "Batteries usagées au plomb"
+  },
+  {
+    "_id": "337a2e4122b12690420041d7",
+    "name": "Huiles usagées"
+  },
+  {
+    "_id": "337a2e4122b12690420041d8",
+    "name": "Pneumatiques usagés"
+  },
+  {
+    "name": "Déchets d'équipements électriques et électroniques"
+  }
+]

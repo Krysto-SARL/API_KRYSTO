@@ -1,0 +1,53 @@
+[
+    {
+        "_id": "337a2e4122b12690420041e1",
+      "name": "Alimentaire"
+    },
+    {
+        "_id": "337a2e4122b12690420041e2",
+      "name": "Produits de soins et d'hygiène"
+    },
+    {
+        "_id": "337a2e4122b12690420041e3",
+      "name": "Produits ménagers"
+    }
+    ,
+    {
+        "_id": "337a2e4122b12690420041e4",
+      "name": "Produits électroniques et électroménagers"
+    },
+    {
+        "_id": "337a2e4122b12690420041e5",
+      "name": "Vêtements et accessoires"
+    },
+    {
+        "_id": "337a2e4122b12690420041e6",
+      "name": "Articles de sport et de loisirs"
+    },
+    {
+        "_id": "337a2e4122b12690420041e7",
+      "name": "Produits de beauté et de maquillage"
+    },
+    {
+        "_id": "337a2e4122b12690420041e8",
+      "name": "Jardin et aménagement extérieur"
+    },
+    {
+        "_id": "337a2e4122b12690420041e9",
+      "name": "Animaux de compagnie"
+    },
+    {
+        "_id": "337a2e4122b12690420041f1",
+      "name": "Bricolage et matériaux de construction"
+    },
+    {
+        "_id": "337a2e4122b12690420041f2",
+      "name": "Produits pour la voiture et l'entretien automobile"
+    },
+    {
+        "_id": "337a2e4122b12690420041f3",
+      "name": "Articles de bureau et fournitures scolaires"
+    }
+  
+  ]
+  

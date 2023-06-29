@@ -4,7 +4,7 @@ const MessageSchema = new mongoose.Schema(
   {
     object: {
       type: String,
-      required: [true, 'Please add object'],
+      required: [true, `Merci d'ajouter un objet a votre message`],
       trim: true,
       maxlength: [50, 'Name can not be more than 30 characters'],
     },

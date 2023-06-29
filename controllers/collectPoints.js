@@ -34,20 +34,7 @@ exports.getCollectPoint = asyncHandler(async (req, res, next) => {
 //@ route:          POST /krysto/api/v1/partners
 //@access:          Private
 exports.createCollectPoint = asyncHandler(async (req, res, next) => {
-  // Add user to req.body
 
-  // // Check for published partner
-  // const publishedUser = await CollectPoint.findOne({ user: req.user.id });
-
-  // // If the user is not an admin, they can only add one collect point
-  // if (publishedUser && req.user.role != "admin") {
-  //   return next(
-  //     new ErrorResponse(
-  //       `The user with ID ${req.user.id} has already published a collect point`,
-  //       400
-  //     )
-  //   );
-  // }
 
   const collectPoint = await CollectPoint.create(req.body)
   res.status(201).json({
@@ -90,15 +77,7 @@ exports.deleteCollectPoint = asyncHandler(async (req, res, next) => {
     )
   }
 
-  //   // Make sure user is user owner
-  //   if (user.toString() !== req.user.id && req.user.role !== admin) {
-  //     return next(
-  //       new ErrorResponse(
-  //         `The user with ID ${req.user.id} is not authorize to update this collect point`,
-  //         401
-  //       )
-  //     );
-  //   }
+
 
   collectPoint.remove()
 
@@ -108,6 +87,8 @@ exports.deleteCollectPoint = asyncHandler(async (req, res, next) => {
 // @description      Get collect points within a radius
 // @route            GET /api/v1/collectPoints/radius/:zipcode/:distance
 // @access           Private
+
+
 exports.getCollectPointsInRadius = asyncHandler(async (req, res, next) => {
   const { zipcode, distance } = req.params
 
@@ -116,9 +97,7 @@ exports.getCollectPointsInRadius = asyncHandler(async (req, res, next) => {
   const lat = loc[0].latitude
   const lng = loc[0].longitude
 
-  // Calc radius using radians
-  // Divide dist by radius of Earth
-  // Earth Radius =  6,378 km
+  
   const radius = distance / 6378
 
   const collectPoints = await CollectPoint.find({

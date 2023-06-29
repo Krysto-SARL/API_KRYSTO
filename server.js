@@ -37,9 +37,12 @@ const productCategories = require('./routes/productCategories.js')
 const products = require('./routes/products.js')
 const services = require('./routes/services.js')
 const plasticTypes = require('./routes/plasticTypes')
+const recyclableProductCategories = require('./routes/recyclableProductCategories.js')
 const recyclableProducts = require('./routes/recyclableProducts.js')
 
 const collectPoints = require('./routes/collectPoints')
+const voluntaryDropPoints = require('./routes/voluntaryDropPoint.js')
+const garbageTypes = require('./routes/garbageType.js')
 
 // initialize express  application
 const app = express()
@@ -101,6 +104,9 @@ app.use('/api/v1/products', products)
 app.use('/api/v1/services', services)
 app.use('/api/v1/plasticTypes', plasticTypes)
 app.use('/api/v1/recyclableProducts', recyclableProducts)
+app.use('/api/v1/voluntaryDropPoints', voluntaryDropPoints)
+app.use('/api/v1/garbageTypes', garbageTypes)
+app.use('/api/v1/recyclableProductCategories', recyclableProductCategories)
 
 app.use(errorHandler)
 

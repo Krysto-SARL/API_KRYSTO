@@ -2,6 +2,12 @@ const mongoose = require('mongoose')
 
 // Définition du schéma pour les articles
 const RecyclableProductSchema = new mongoose.Schema({
+  recyclableProductCategory: {
+    type: mongoose.Schema.Types.ObjectId,
+    ref: 'RecyclableProductCategory',
+    required: true,
+  },
+
   codeBarre: {
     type: String,
     unique: true,
@@ -42,6 +48,26 @@ const RecyclableProductSchema = new mongoose.Schema({
       ref: 'PlasticType',
     },
   ],
+
+  nutriScore: {
+    type: String,
+    enum: ['A', 'B', 'C', 'D', 'E'],
+  },
+
+  recyclingStatus: {
+    type: String,
+    enum: [
+      'Recyclé en Nouvelle-Calédonie',
+      "Revalorisé à l'export",
+      'Enfoui ou incinéré',
+    ],
+    default: 'Enfoui ou incinéré',
+    required: true,
+  },
+
+  containsPalmOil: {
+    type: Boolean,
+  },
 })
 
 // Création du modèle d'articles basé sur le schéma
