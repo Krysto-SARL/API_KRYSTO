@@ -18,7 +18,9 @@ exports.getRecyclableProducts = asyncHandler(async (req, res, next) => {
 //@route:           GET /krysto/api/v2/recyclableProducts/:id
 //@access:          Public
 exports.getRecyclableProduct = asyncHandler(async (req, res, next) => {
-  const recyclableProduct = await RecyclableProduct.findById(req.params.id)
+  const recyclableProduct = await RecyclableProduct.findById(
+    req.params.id,
+  ).populate('plasticTypes recyclableProductCategory')
 
   if (!recyclableProduct) {
     return next(

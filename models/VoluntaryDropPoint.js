@@ -14,10 +14,10 @@ const VoluntaryDropPointSchema = new mongoose.Schema(
       required: true,
     },
 
-    typeDechets: [
+    garbageTypes: [
       {
         type: mongoose.Schema.Types.ObjectId,
-        ref: 'PlasticType',
+        ref: 'GarbageType',
       },
     ],
     email: {
@@ -64,12 +64,4 @@ VoluntaryDropPointSchema.pre('save', async function (next) {
   next()
 })
 
-// reverse populate with virtuals
-
-VoluntaryDropPointSchema.virtual('garbageType', {
-  ref: 'GarbageType',
-  localField: '_id',
-  foreignField: 'voluntaryDropPoint',
-  justOne: false,
-})
 module.exports = mongoose.model('VoluntaryDropPoint', VoluntaryDropPointSchema)

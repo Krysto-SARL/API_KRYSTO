@@ -1,4 +1,4 @@
-const express = require('express');
+const express = require('express')
 const {
   getVoluntaryDropPoints,
   getVoluntaryDropPoint,
@@ -6,22 +6,26 @@ const {
   updateVoluntaryDropPoint,
   deleteVoluntaryDropPoint,
   getVoluntaryDropPointsInRadius,
-} = require('../controllers/voluntaryDropPoint');
-const advancedResults = require('../middlewares/advancedResults');
-const VoluntaryDropPoint = require('../models/VoluntaryDropPoint');
+} = require('../controllers/voluntaryDropPoint')
+const advancedResults = require('../middlewares/advancedResults')
+const VoluntaryDropPoint = require('../models/VoluntaryDropPoint')
 const garbageTypeRouter = require('./garbageType')
-const router = express.Router();
+const router = express.Router()
 router.use('/:garbageTypeId/collects', garbageTypeRouter)
-router.route('/')
-  .get(advancedResults(VoluntaryDropPoint, "typeDechets"), getVoluntaryDropPoints)
-  .post(createVoluntaryDropPoint);
+router
+  .route('/')
+  .get(
+    advancedResults(VoluntaryDropPoint, 'garbageTypes'),
+    getVoluntaryDropPoints,
+  )
+  .post(createVoluntaryDropPoint)
 
-router.route('/:id')
+router
+  .route('/:id')
   .get(getVoluntaryDropPoint)
   .put(updateVoluntaryDropPoint)
-  .delete(deleteVoluntaryDropPoint);
+  .delete(deleteVoluntaryDropPoint)
 
-router.route('/radius/:zipcode/:distance')
-  .get(getVoluntaryDropPointsInRadius);
+router.route('/radius/:zipcode/:distance').get(getVoluntaryDropPointsInRadius)
 
-module.exports = router;
+module.exports = router

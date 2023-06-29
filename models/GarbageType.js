@@ -14,9 +14,6 @@ const GarbageTypeSchema = new mongoose.Schema(
     containerColor: {
       type: String,
     },
-    voluntaryDropPoints: {
-      type: String,
-    },
 
     détails: {
       type: String,
@@ -30,12 +27,13 @@ const GarbageTypeSchema = new mongoose.Schema(
     toObject: { virtuals: true },
   },
 )
+
 // // reverse populate with virtuals
 
-GarbageTypeSchema.virtual('voluntaryDropPoint', {
+GarbageTypeSchema.virtual('voluntaryDropPoints', {
   ref: 'VoluntaryDropPoint',
   localField: '_id',
-  foreignField: 'garbage',
+  foreignField: 'garbageTypes',
   justOne: false,
 })
 
