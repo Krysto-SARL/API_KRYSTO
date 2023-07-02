@@ -22,6 +22,8 @@ const PlasticType = require('./models/PlasticType')
 const RecyclableProduct = require('./models/RecyclableProduct')
 const VoluntaryDropPoint = require('./models/VoluntaryDropPoint')
 const GarbageType = require('./models/GarbageType')
+const NutriScore = require('./models/NutriScore')
+const EcoScore = require('./models/EcoScore')
 
 // Connect to DB
 mongoose.set('strictQuery', false)
@@ -79,6 +81,12 @@ const voluntaryDropPoints = JSON.parse(
 const garbageTypes = JSON.parse(
   fs.readFileSync(`${__dirname}/_data/garbageType.json`, 'utf-8'),
 )
+const nutriScores = JSON.parse(
+  fs.readFileSync(`${__dirname}/_data/nutriScore.json`, 'utf-8'),
+)
+const ecoScores = JSON.parse(
+  fs.readFileSync(`${__dirname}/_data/ecoScore.json`, 'utf-8'),
+)
 
 // Import into DB
 const importData = async () => {
@@ -97,6 +105,8 @@ const importData = async () => {
     await RecyclableProduct.create(recyclableProducts)
     await VoluntaryDropPoint.create(voluntaryDropPoints)
     await GarbageType.create(garbageTypes)
+    await NutriScore.create(nutriScores)
+    await EcoScore.create(ecoScores)
 
     console.log('Data Imported...'.green.inverse)
     process.exit()
@@ -122,6 +132,8 @@ const deleteData = async () => {
     await RecyclableProduct.deleteMany()
     await VoluntaryDropPoint.deleteMany()
     await GarbageType.deleteMany()
+    await NutriScore.deleteMany()
+    await EcoScore.deleteMany()
 
     console.log('Data Destroyed...'.red.inverse)
     process.exit()

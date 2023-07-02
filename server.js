@@ -43,6 +43,8 @@ const recyclableProducts = require('./routes/recyclableProducts.js')
 const collectPoints = require('./routes/collectPoints')
 const voluntaryDropPoints = require('./routes/voluntaryDropPoint.js')
 const garbageTypes = require('./routes/garbageType.js')
+const nutriScores = require('./routes/nutriScore.js')
+const ecoScores = require('./routes/ecoScore.js')
 
 // initialize express  application
 const app = express()
@@ -107,6 +109,8 @@ app.use('/api/v1/recyclableProducts', recyclableProducts)
 app.use('/api/v1/voluntaryDropPoints', voluntaryDropPoints)
 app.use('/api/v1/garbageTypes', garbageTypes)
 app.use('/api/v1/recyclableProductCategories', recyclableProductCategories)
+app.use('/api/v1/nutriScores', nutriScores)
+app.use('/api/v1/ecoScores', ecoScores)
 
 app.use(errorHandler)
 

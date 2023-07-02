@@ -14,6 +14,7 @@ const RecyclableProductSchema = new mongoose.Schema(
       unique: true,
       required: true,
     },
+
     photo: {
       type: String,
       default: 'no-photo.png',
@@ -29,18 +30,15 @@ const RecyclableProductSchema = new mongoose.Schema(
     },
     remarque: {
       type: String,
-      required: true,
     },
 
     recyclableByKrysto: {
       type: Boolean,
       required: true,
     },
-    recyclabilityScore: {
-      type: Number,
-      min: 1,
-      max: 10,
-      required: true,
+    ecoScore: {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: 'EcoScore',
     },
 
     plasticTypes: [
@@ -50,24 +48,32 @@ const RecyclableProductSchema = new mongoose.Schema(
       },
     ],
 
+    garbageTypes: [
+      {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'GarbageType',
+      },
+    ],
+
     nutriScore: {
-      type: String,
-      enum: ['A', 'B', 'C', 'D', 'E'],
+      type: mongoose.Schema.Types.ObjectId,
+      ref: 'NutriScore',
     },
 
-    recyclingStatus: {
+    transportation: {
       type: String,
       enum: [
-        'Recyclé en Nouvelle-Calédonie',
-        "Revalorisé à l'export",
-        'Enfoui ou incinéré',
+        'Fabriquée en Nouvelle-Calédonie',
+        'Transformée en Nouvelle-Calédonie',
+        'Importée',
       ],
-      default: 'Enfoui ou incinéré',
+      default: 'Importée',
       required: true,
     },
 
     containsPalmOil: {
       type: Boolean,
+      default: false,
     },
   },
 

@@ -1,13 +1,29 @@
 [
     {
-      "recyclableProductCategory": "337a2e4122b12690420041e1",
+      "_id": "64a0100e89c182fa52449a1a",
+      "recyclableProductCategory": "337a2e4122b12690420041e2",
       "codeBarre": "8718951389830",
       "marque": "Sanex",
       "designation": "Biom Protect dermo sensitive peaux sensible",
       "remarque": "Ce produit est très facile a recycler et l'étiquette est facile a enlever aider nous en l'enlevant avant de le jeter dans la poubelle Krysto.",
       "recyclableByKrysto": true,
-      "recyclabilityScore": 9,
-      "plasticTypes": ["737a3694e5fc335f796a4943"]
+      "ecoScore": "637a3694e5fc335f796a4951",
+      "nutriScore": "937a3694e5fc335f796a4951",
+      "plasticTypes": ["737a3694e5fc335f796a4943"],
+      "garbageTypes": ["337a2e4122b12690420041d1"]
+    },
+    {
+      "_id": "64a0100e89c182fa52449a2a",
+      "recyclableProductCategory": "337a2e4122b12690420041e2",
+      "codeBarre": "3274080005003",
+      "marque": "Cristaline",
+      "designation": "Eau de source - Cristaline - 1,5 L",
+      "remarque": "",
+      "nutriScore": "937a3694e5fc335f796a4951",
+      "recyclableByKrysto": true,
+      "ecoScore": "637a3694e5fc335f796a4951",
+      "plasticTypes": ["737a3694e5fc335f796a4942", "737a3694e5fc335f796a4943"],
+      "garbageTypes":["337a2e4122b12690420041d1"]
     }
    
   ]

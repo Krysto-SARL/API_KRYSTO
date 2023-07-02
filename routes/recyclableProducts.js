@@ -11,7 +11,6 @@ const {
 const { protect, authorize } = require('../middlewares/auth')
 const RecyclableProduct = require('../models/RecyclableProduct')
 const advancedResults = require('../middlewares/advancedResults')
-const PlasticType = require('../models/PlasticType')
 
 router
   .route('/')

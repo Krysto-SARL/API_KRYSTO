@@ -20,7 +20,9 @@ exports.getRecyclableProducts = asyncHandler(async (req, res, next) => {
 exports.getRecyclableProduct = asyncHandler(async (req, res, next) => {
   const recyclableProduct = await RecyclableProduct.findById(
     req.params.id,
-  ).populate('plasticTypes recyclableProductCategory')
+  ).populate(
+    'plasticTypes recyclableProductCategory garbageTypes nutriScore ecoScore',
+  )
 
   if (!recyclableProduct) {
     return next(
