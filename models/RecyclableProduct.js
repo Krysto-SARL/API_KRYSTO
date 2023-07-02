@@ -31,6 +31,9 @@ const RecyclableProductSchema = new mongoose.Schema(
     remarque: {
       type: String,
     },
+    environementReglementation: {
+      type: String,
+    },
 
     recyclableByKrysto: {
       type: Boolean,
