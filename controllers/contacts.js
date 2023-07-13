@@ -25,42 +25,64 @@ exports.getContact = asyncHandler(async (req, res, next) => {
   res.status(200).json({ success: true, data: contact })
 })
 
-//@description:     Create new contact for a specific customer
-//@ route:          POST /krysto/api/v1/customers/:customerId/contacts
-//@access:          Private
-exports.createContactForCustomer = asyncHandler(async (req, res, next) => {
-  // Récupérer l'ID de la catégorie de produits à partir des paramètres de la requête
-  const customerId = req.params.customerId
-
-  // Vérifier si la catégorie de produits existe
-  const customer = await Customer.findById(customerId)
-
-  if (!customer) {
-    return next(
-      new ErrorResponse(`No customer  with the id of ${customerId}`, 404),
-    )
-  }
-
-  const contact = await Contact.create(req.body)
-
-  customer.contacts.push(contact._id)
-  await customer.save()
-  console.log(customer)
-  res.status(201).json({
-    success: true,
-    data: contact,
-  })
-})
-
 //@description:     Create new contact
-//@ route:          POST /krysto/api/v1/contacts
+//@route:          POST /krysto/api/v1/contacts
+//@route:          POST /krysto/api/v1/customers/:customer/contacts
 //@access:          Private
 exports.createContact = asyncHandler(async (req, res, next) => {
-  const contact = await Contact.create(req.body)
+  if (req.params.customerId) {
+    const customerId = req.params.customerId
 
-  res.status(201).json({
+    // Vérifier si le client existe
+    const customer = await Customer.findById(customerId)
+    if (!customer) {
+      return next(
+        new ErrorResponse(
+          `No customer found with the id of ${customerId}`,
+          404,
+        ),
+      )
+    }
+
+    // Créer le contact avec les données de la requête
+    const contact = await Contact.create(req.body)
+
+    // Ajouter le nouveau contact au tableau de contacts du client
+    customer.contacts.push(contact)
+    await customer.save()
+
+    res.status(201).json({
+      success: true,
+      data: contact,
+    })
+  } else {
+    const contact = await Contact.create(req.body)
+
+    res.status(201).json({
+      success: true,
+      data: contact,
+    })
+  }
+})
+
+//@description:     Get all collects
+//@ route:          GET /krysto/api/v1/collects
+//@ route:          GET /krysto/api/v1/collectPoints/:collectPointId/collects
+//@access:          Public
+
+exports.getCollects = asyncHandler(async (req, res, next) => {
+  let query
+  if (req.params.collectPointId) {
+    query = Collect.find({ collectPoint: req.params.collectPointId })
+  } else {
+    query = Collect.find()
+  }
+
+  const collects = await query
+  res.status(200).json({
     success: true,
-    data: contact,
+    count: collects.length,
+    data: collects,
   })
 })
 

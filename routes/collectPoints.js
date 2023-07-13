@@ -9,16 +9,14 @@ const {
   deleteCollectPoint,
   collectPointQrUpload,
 } = require('../controllers/collectPoints')
+const collectRouter = require('./collects')
 
 const router = express.Router({ mergeParams: true })
+router.use('/:collectPointId/collects', collectRouter)
 const { protect, authorize } = require('../middlewares/auth')
-
-const collectRouter = require('./collects')
 
 const advancedResults = require('../middlewares/advancedResults')
 const CollectPoint = require('../models/CollectPoint')
-
-router.use('/:collectPointId/collects', collectRouter)
 
 router.route('/radius/:zipcode/:distance').get(getCollectPointsInRadius)
 router

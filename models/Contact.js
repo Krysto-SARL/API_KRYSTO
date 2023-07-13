@@ -7,43 +7,38 @@ const ContactSchema = new mongoose.Schema(
       enum: ['Mr', 'Mme', 'Melle'],
       default: 'Mr',
     },
-
     detail: {
       type: String,
       default: 'aucun détails pour ce contact',
     },
     firstname: {
       type: String,
-      required: [true, "Meric d'entrer un prénom pour ce contact"],
+      required: [true, "Merci d'entrer un prénom pour ce contact"],
     },
-
     lastname: {
       type: String,
-      required: [true, "Meric d'entrer un prénom pour ce contact"],
+      required: [true, "Merci d'entrer un nom de famille pour ce contact"],
     },
-
     email: {
       type: String,
       unique: true,
       match: [
         /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/,
-        'Please add a valid email',
+        'Veuillez entrer une adresse email valide',
       ],
     },
     phone: {
       type: String,
+      unique: true,
     },
-
     phone2: {
       type: String,
-      unique: false,
     },
-
-    function: {
+    contactFunction: {
       type: String,
+      sparse: true,
     },
   },
-
   {
     timestamps: true,
     toJSON: { virtuals: true },
