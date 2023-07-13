@@ -39,37 +39,17 @@
   {
     "_id": "5d7a514b5d2c12c7449be015",
     "username": "Optic Discount",
-    "compagny": {
-      "compagnyName": "Optic Discount",
-      "ridet": "441591"
-    },
     "email": "optic@gmail.com",
     "role": "partner",
     "password": "123456",
-    "contact": {
-      "firstname": "Harold",
-      "lastname": "Courtot",
-      "function": "gerant",
-      "phone": "300340"
-    },
     "logo": "logo-optic-discount.png"
   },
   {
     "_id": "5d7a514b5d2c12c7449be016",
     "username": "Adie",
-    "compagny": {
-      "compagnyName": "Adie Nouvelle-Calédonie",
-      "ridet": "441599"
-    },
     "email": "adie@gmail.com",
     "role": "partner",
     "password": "123456",
-    "contact": {
-      "firstname": "Guillaume",
-      "lastname": "Juge",
-      "function": "Conseiller",
-      "phone": "300740"
-    },
     "logo": "logo_adie.svg"
   }
 ]

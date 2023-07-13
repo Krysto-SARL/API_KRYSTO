@@ -31,16 +31,14 @@ const UserSchema = new mongoose.Schema(
       enum: ['partner', 'admin', 'recycler'],
       default: 'partner',
     },
+    customer: {
+      type: mongoose.Schema.ObjectId,
+      ref: 'Customer',
+    },
+
     logo: {
       type: String,
       default: 'no-photo.png',
-    },
-    contact: {
-      firstname: String,
-      lastname: String,
-      function: String,
-      phone: String,
-      address: String,
     },
 
     password: {

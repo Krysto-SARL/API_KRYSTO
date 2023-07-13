@@ -24,6 +24,9 @@ const VoluntaryDropPoint = require('./models/VoluntaryDropPoint')
 const GarbageType = require('./models/GarbageType')
 const NutriScore = require('./models/NutriScore')
 const EcoScore = require('./models/EcoScore')
+const Origine = require('./models/Origine')
+const Customer = require('./models/Customers')
+const Contact = require('./models/Contact')
 
 // Connect to DB
 mongoose.set('strictQuery', false)
@@ -87,6 +90,15 @@ const nutriScores = JSON.parse(
 const ecoScores = JSON.parse(
   fs.readFileSync(`${__dirname}/_data/ecoScore.json`, 'utf-8'),
 )
+const origines = JSON.parse(
+  fs.readFileSync(`${__dirname}/_data/origines.json`, 'utf-8'),
+)
+const customers = JSON.parse(
+  fs.readFileSync(`${__dirname}/_data/customers.json`, 'utf-8'),
+)
+const contacts = JSON.parse(
+  fs.readFileSync(`${__dirname}/_data/contacts.json`, 'utf-8'),
+)
 
 // Import into DB
 const importData = async () => {
@@ -107,6 +119,9 @@ const importData = async () => {
     await GarbageType.create(garbageTypes)
     await NutriScore.create(nutriScores)
     await EcoScore.create(ecoScores)
+    await Origine.create(origines)
+    await Contact.create(contacts)
+    await Customer.create(customers)
 
     console.log('Data Imported...'.green.inverse)
     process.exit()
@@ -134,6 +149,9 @@ const deleteData = async () => {
     await GarbageType.deleteMany()
     await NutriScore.deleteMany()
     await EcoScore.deleteMany()
+    await Origine.deleteMany()
+    await Customer.deleteMany()
+    await Contact.deleteMany()
 
     console.log('Data Destroyed...'.red.inverse)
     process.exit()
