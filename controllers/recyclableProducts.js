@@ -161,3 +161,26 @@ exports.recyclableProductPhotoUpload = asyncHandler(async (req, res, next) => {
     })
   })
 })
+
+//@description:     Find a recyclable product by code barre
+//@route:           GET /krysto/api/v2/recyclableProducts/codeBarre/:codeBarre
+//@access:          Public
+exports.findRecyclableProductByCodeBarre = asyncHandler(
+  async (req, res, next) => {
+    const { codeBarre } = req.params
+
+    const recyclableProduct = await RecyclableProduct.findOne({ codeBarre })
+
+    if (!recyclableProduct) {
+      return res.status(404).json({
+        success: false,
+        error: `Recyclable product with code barre ${codeBarre} not found.`,
+      })
+    }
+
+    res.status(200).json({
+      success: true,
+      data: recyclableProduct,
+    })
+  },
+)

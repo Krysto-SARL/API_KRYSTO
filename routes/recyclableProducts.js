@@ -7,6 +7,7 @@ const {
   updateRecyclableProduct,
   deleteRecyclableProduct,
   recyclableProductPhotoUpload,
+  findRecyclableProductByCodeBarre, // Ajout de la nouvelle méthode
 } = require('../controllers/recyclableProducts')
 const { protect, authorize } = require('../middlewares/auth')
 const RecyclableProduct = require('../models/RecyclableProduct')
@@ -27,5 +28,8 @@ router
   .delete(deleteRecyclableProduct)
 
 router.route('/:id/photo').put(recyclableProductPhotoUpload)
+
+// Nouvelle route pour trouver un produit recyclable par code barre
+router.route('/codeBarre/:codeBarre').get(findRecyclableProductByCodeBarre)
 
 module.exports = router
