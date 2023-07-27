@@ -18,7 +18,27 @@ exports.register = asyncHandler(async (req, res, next) => {
     role,
   })
 
-  sendTokenResponse(user, 200, res)
+  // Send registration email to the user
+  const message = `Bonjour ${user.username},\n\nVotre compte Krysto a été créé avec succès. Bienvenue !`
+
+  try {
+    await sendEmail({
+      email: user.email,
+      subject: 'Compte Krysto créé',
+      message,
+    })
+
+    // Respond to the client with success and the user token
+    sendTokenResponse(user, 200, res)
+  } catch (err) {
+    console.log(err)
+
+    // If there is an error sending the email, remove the user and respond with an error
+    await User.findByIdAndRemove(user._id)
+    return next(
+      new ErrorResponse('Account creation email could not be sent', 500),
+    )
+  }
 })
 
 // @desc      Login user

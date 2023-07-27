@@ -34,8 +34,6 @@ exports.getCollectPoint = asyncHandler(async (req, res, next) => {
 //@ route:          POST /krysto/api/v1/partners
 //@access:          Private
 exports.createCollectPoint = asyncHandler(async (req, res, next) => {
-
-
   const collectPoint = await CollectPoint.create(req.body)
   res.status(201).json({
     success: true,
@@ -77,8 +75,6 @@ exports.deleteCollectPoint = asyncHandler(async (req, res, next) => {
     )
   }
 
-
-
   collectPoint.remove()
 
   res.status(200).json({ success: true, data: {} })
@@ -88,7 +84,6 @@ exports.deleteCollectPoint = asyncHandler(async (req, res, next) => {
 // @route            GET /api/v1/collectPoints/radius/:zipcode/:distance
 // @access           Private
 
-
 exports.getCollectPointsInRadius = asyncHandler(async (req, res, next) => {
   const { zipcode, distance } = req.params
 
@@ -97,7 +92,6 @@ exports.getCollectPointsInRadius = asyncHandler(async (req, res, next) => {
   const lat = loc[0].latitude
   const lng = loc[0].longitude
 
-  
   const radius = distance / 6378
 
   const collectPoints = await CollectPoint.find({

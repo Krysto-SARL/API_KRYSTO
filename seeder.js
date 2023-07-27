@@ -27,6 +27,8 @@ const EcoScore = require('./models/EcoScore')
 const Origine = require('./models/Origine')
 const Customer = require('./models/Customers')
 const Contact = require('./models/Contact')
+const Additive = require('./models/Additive')
+const NovaScore = require('./models/NovaScore')
 
 // Connect to DB
 mongoose.set('strictQuery', false)
@@ -99,6 +101,12 @@ const customers = JSON.parse(
 const contacts = JSON.parse(
   fs.readFileSync(`${__dirname}/_data/contacts.json`, 'utf-8'),
 )
+const additives = JSON.parse(
+  fs.readFileSync(`${__dirname}/_data/additive.json`, 'utf-8'),
+)
+const novaScores = JSON.parse(
+  fs.readFileSync(`${__dirname}/_data/novaScore.json`, 'utf-8'),
+)
 
 // Import into DB
 const importData = async () => {
@@ -122,6 +130,8 @@ const importData = async () => {
     await Origine.create(origines)
     await Contact.create(contacts)
     await Customer.create(customers)
+    await Additive.create(additives)
+    await NovaScore.create(novaScores)
 
     console.log('Data Imported...'.green.inverse)
     process.exit()
@@ -151,6 +161,8 @@ const deleteData = async () => {
     await EcoScore.deleteMany()
     await Origine.deleteMany()
     await Customer.deleteMany()
+    await Additive.deleteMany()
+    await NovaScore.deleteMany()
     await Contact.deleteMany()
 
     console.log('Data Destroyed...'.red.inverse)

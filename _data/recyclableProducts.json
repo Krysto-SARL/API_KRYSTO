@@ -1,4 +1,30 @@
 [
+  {
+    "recyclableProductCategory": "60d8baf79c50e509d8b5c1ea",
+    "codeBarre": "1234567890",
+    "marque": "Brand 1",
+    "designation": "Product 1",
+    "genericName": "Generic Name 1",
+    "quantity": "100g",
+    "ingredients": ["ingredient1", "ingredient2", "ingredient3"],
+    "allergens": ["allergen1", "allergen2"],
+    "additives": ["64c226e1d8996071250543a3"],
+    "containsPalmOil": false,
+    "nutritionFacts": {
+      "energy": { "per100g": "100 kcal", "perPortion": "20 kcal" },
+      "fats": { "per100g": "5 g", "perPortion": "1 g" },
+      "sugars": { "per100g": "10 g", "perPortion": "2 g" }
+    },
+    "ecoScore": "642a3694e5fc335f796a4951",
+    "nutriScore": "937a3694e5fc335f796a4951",
+    "novaScore": "64c2196492449ae0c6729a6a",
+    "recyclableByKrysto": true,
+    "plasticTypes": ["737a3694e5fc335f796a4943"],
+      "garbageTypes": ["337a2e4122b12690420041d1"],
+    "environementReglementation": "Regulation 1",
+    "provenanceCountry": "France",
+    "remarque": "Remark 1"
+  },
     {
       "_id": "64a0100e89c182fa52449a1a",
       "recyclableProductCategory": "337a2e4122b12690420041e2",
@@ -14,7 +40,7 @@
     },
     {
       "_id": "64a0100e89c182fa52449a2a",
-      "recyclableProductCategory": "337a2e4122b12690420041e2",
+      "recyclableProductCategory": "337a2e4122b12690420041e1",
       "codeBarre": "3274080005003",
       "marque": "Cristaline",
       "designation": "Eau de source - Cristaline - 1,5 L",
@@ -23,6 +49,46 @@
       "recyclableByKrysto": true,
       "ecoScore": "637a3694e5fc335f796a4951",
       "plasticTypes": ["737a3694e5fc335f796a4942", "737a3694e5fc335f796a4943"],
+      "garbageTypes":["337a2e4122b12690420041d1"]
+    },
+    {
+      "_id": "64a0100e89c182fa52449a3a",
+      "recyclableProductCategory": "337a2e4122b12690420041e1",
+      "codeBarre": "3468570726299",
+      "marque": "Thonon",
+      "designation": "Eau de source - Thonon - 1,5 L",
+      "remarque": "",
+      "nutriScore": "937a3694e5fc335f796a4951",
+      "recyclableByKrysto": true,
+      "ecoScore": "637a3694e5fc335f796a4951",
+      "plasticTypes": ["737a3694e5fc335f796a4942", "737a3694e5fc335f796a4943"],
+      "garbageTypes":["337a2e4122b12690420041d1"]
+    },
+    {
+      "_id": "64a0100e89c182fa52449a4a",
+      "recyclableProductCategory": "337a2e4122b12690420041e1",
+      "codeBarre": "32224777082021",
+      "marque": "Casino",
+      "designation": "Créme glacée au chocolat noir (94%)",
+      "remarque": "",
+      "nutriScore": "940a3694e5fc335f796a4954",
+      "recyclableByKrysto": true,
+      "ecoScore": "641a3694e5fc335f796a4951",
+      "plasticTypes": ["737a3694e5fc335f796a4946"],
+      "garbageTypes":["337a2e4122b12690420041d1"]
+    }
+    ,
+    {
+      "_id": "64a0100e89c182fa52449a5a",
+      "recyclableProductCategory": "337a2e4122b12690420041e1",
+      "codeBarre": "3116740029809",
+      "marque": "Lutti",
+      "designation": "Bestifizz boite de 550 gr",
+      "remarque": "",
+      "nutriScore": "941a3694e5fc335f796a4955",
+      "recyclableByKrysto": true,
+      "ecoScore": "641a3694e5fc335f796a4951",
+      "plasticTypes": ["737a3694e5fc335f796a4946"],
       "garbageTypes":["337a2e4122b12690420041d1"]
     }
    

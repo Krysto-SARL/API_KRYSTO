@@ -21,7 +21,7 @@ exports.getRecyclableProduct = asyncHandler(async (req, res, next) => {
   const recyclableProduct = await RecyclableProduct.findById(
     req.params.id,
   ).populate(
-    'plasticTypes recyclableProductCategory garbageTypes nutriScore ecoScore',
+    'plasticTypes recyclableProductCategory garbageTypes nutriScore ecoScore additives novaScore',
   )
 
   if (!recyclableProduct) {
@@ -38,6 +38,33 @@ exports.getRecyclableProduct = asyncHandler(async (req, res, next) => {
     data: recyclableProduct,
   })
 })
+
+//@description:     Find a recyclable product by code barre
+//@route:           GET /krysto/api/v2/recyclableProducts/codeBarre/:codeBarre
+//@access:          Public
+exports.findRecyclableProductByCodeBarre = asyncHandler(
+  async (req, res, next) => {
+    const { codeBarre } = req.params
+
+    const recyclableProduct = await RecyclableProduct.findOne({
+      codeBarre,
+    }).populate(
+      'plasticTypes recyclableProductCategory garbageTypes nutriScore ecoScore additives novaScore',
+    )
+
+    if (!recyclableProduct) {
+      return res.status(404).json({
+        success: false,
+        error: `Recyclable product with code barre ${codeBarre} not found.`,
+      })
+    }
+
+    res.status(200).json({
+      success: true,
+      data: recyclableProduct,
+    })
+  },
+)
 
 //@description:     Create a recyclable product
 //@route:           POST /krysto/api/v2/recyclableProducts
@@ -161,26 +188,3 @@ exports.recyclableProductPhotoUpload = asyncHandler(async (req, res, next) => {
     })
   })
 })
-
-//@description:     Find a recyclable product by code barre
-//@route:           GET /krysto/api/v2/recyclableProducts/codeBarre/:codeBarre
-//@access:          Public
-exports.findRecyclableProductByCodeBarre = asyncHandler(
-  async (req, res, next) => {
-    const { codeBarre } = req.params
-
-    const recyclableProduct = await RecyclableProduct.findOne({ codeBarre })
-
-    if (!recyclableProduct) {
-      return res.status(404).json({
-        success: false,
-        error: `Recyclable product with code barre ${codeBarre} not found.`,
-      })
-    }
-
-    res.status(200).json({
-      success: true,
-      data: recyclableProduct,
-    })
-  },
-)
